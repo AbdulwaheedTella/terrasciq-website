@@ -152,6 +152,27 @@
     range.addEventListener('input', setP); setP();
   }
 
+  /* ---- work: open figures full size ------------------------------------ */
+  var figs = $$('.case .plate img, .case .thumbs img');
+  if (figs.length && 'HTMLDialogElement' in window) {
+    var box = document.createElement('dialog');
+    box.className = 'lightbox'; box.setAttribute('aria-label', 'Figure, full size');
+    box.innerHTML = '<div class="lightbox__in"><button class="lightbox__close" type="button">Close</button><div class="lightbox__stage"><img alt=""></div><p class="lightbox__cap"></p></div>';
+    document.body.appendChild(box);
+    var big = $('img', box), cap = $('.lightbox__cap', box);
+    var shut = function () { box.close(); };
+    $('.lightbox__close', box).addEventListener('click', shut);
+    big.addEventListener('click', shut);
+    box.addEventListener('click', function (e) { if (e.target === box || e.target.classList.contains('lightbox__stage')) shut(); });
+    figs.forEach(function (img) {
+      img.classList.add('zoomable'); img.tabIndex = 0; img.setAttribute('role', 'button');
+      img.setAttribute('aria-label', 'Enlarge figure: ' + img.alt);
+      var open = function () { big.src = img.currentSrc || img.src; big.alt = img.alt; cap.textContent = img.alt; box.showModal(); };
+      img.addEventListener('click', open);
+      img.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); } });
+    });
+  }
+
   /* ---- work: view all --------------------------------------------------- */
   var moreBtn = $('#more-work-btn');
   if (moreBtn) {
