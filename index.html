@@ -1,0 +1,875 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TerraSciQ Analytics | Geospatial intelligence, Earth observation and spatial AI</title>
+  <meta name="description" content="TerraSciQ Analytics combines satellite imagery, spatial data science and AI to help organisations understand risk, monitor change and make better decisions. GeoAI, flood and climate risk modelling, environmental analytics and Web GIS platforms.">
+  <meta name="theme-color" content="#080c0b">
+  <link rel="canonical" href="https://www.terrasciq.com/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="TerraSciQ Analytics">
+  <meta property="og:title" content="TerraSciQ Analytics | Turn Earth data into intelligence">
+  <meta property="og:description" content="Spatial intelligence powered by Earth observation, AI and data science. We build spatial models and test where their predictions remain reliable.">
+  <meta property="og:url" content="https://www.terrasciq.com/">
+  <meta property="og:image" content="https://www.terrasciq.com/assets/img/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicon-180.png">
+  <link rel="manifest" href="site.webmanifest">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&display=swap">
+  <link rel="stylesheet" href="css/styles.css">
+  <script>document.documentElement.className = 'js';</script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "TerraSciQ Analytics",
+    "url": "https://www.terrasciq.com/",
+    "logo": "https://www.terrasciq.com/assets/img/favicon-512.png",
+    "image": "https://www.terrasciq.com/assets/img/og-image.jpg",
+    "slogan": "Spatial intelligence powered by Earth observation, AI and data science.",
+    "description": "Geospatial intelligence, Earth observation, spatial AI, climate and disaster risk modelling, environmental analytics and decision-support platforms.",
+    "foundingDate": "2026",
+    "email": "terrasciq.analytics@gmail.com",
+    "telephone": "+60102486014",
+    "address": { "@type": "PostalAddress", "addressCountry": "NG" },
+    "areaServed": "Worldwide",
+    "founder": { "@type": "Person", "name": "Abdulwaheed Tella", "sameAs": ["https://orcid.org/0000-0002-4380-3343", "https://www.linkedin.com/in/abdulwaheedtella"] },
+    "knowsAbout": ["GeoAI", "Geospatial analytics", "Remote sensing", "Earth observation", "Flood risk modelling", "Climate risk analytics", "Environmental analytics", "Spatial data science", "Web GIS"]
+  }
+  </script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="arr" viewBox="0 0 18 10" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M0 5h16M12 1l4 4-4 4"/></symbol>
+  <pattern id="hatch" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#ee6a2e" stroke-width="1.4"/></pattern>
+</svg>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <div class="wrap nav__in">
+    <a class="brand" href="#top" aria-label="TerraSciQ Analytics, home">
+      <img src="assets/img/logo-icon.webp" width="192" height="192" alt="">
+      <span class="brand__name">TerraSciQ<span>Analytics</span></span>
+    </a>
+    <nav aria-label="Primary">
+      <ul class="nav__links">
+        <li><a href="#solutions">Solutions</a></li>
+        <li><a href="#capabilities">Capabilities</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="nav__right">
+      <a class="btn btn--sm" href="#contact" data-magnetic>Start a Project <svg class="arr" aria-hidden="true"><use href="#arr"/></svg></a>
+      <button class="burger" id="burger" aria-expanded="false" aria-controls="menu" aria-label="Open menu"><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="menu" id="menu" aria-hidden="true">
+  <ul class="menu__links">
+    <li><a href="#solutions"><small>01</small>Solutions</a></li>
+    <li><a href="#capabilities"><small>02</small>Capabilities</a></li>
+    <li><a href="#work"><small>03</small>Work</a></li>
+    <li><a href="#research"><small>04</small>Research</a></li>
+    <li><a href="#about"><small>05</small>About</a></li>
+    <li><a href="#contact"><small>06</small>Contact</a></li>
+  </ul>
+  <div class="menu__foot">
+    <a class="btn" href="#contact">Start a Project <svg class="arr" aria-hidden="true"><use href="#arr"/></svg></a>
+    <p>terrasciq.analytics@gmail.com &nbsp;/&nbsp; WhatsApp +60 10-248 6014</p>
+  </div>
+</div>
+
+<main id="main">
+
+<!-- ============ HERO ============ -->
+<section class="hero grain" id="top" aria-labelledby="hero-title">
+  <canvas class="hero__canvas" id="hero-canvas" aria-hidden="true"></canvas>
+  <div class="hero__shade"></div>
+
+  <div class="hud hud--layers" role="group" aria-label="Map layers">
+    <div class="hud__head"><b>Layers</b><i>Live</i></div>
+    <button class="layer" data-layer="elevation" aria-pressed="true"><span>Elevation model</span><span>DEM</span></button>
+    <button class="layer" data-layer="flood" aria-pressed="false"><span>Flood susceptibility</span><span>ML</span></button>
+    <button class="layer" data-layer="landcover" aria-pressed="false"><span>Land cover</span><span>EO</span></button>
+    <button class="layer" data-layer="air" aria-pressed="false"><span>Air quality surface</span><span>PM10</span></button>
+    <div class="hud__ramp"><div id="hud-ramp"></div><p><span id="hud-lo">Low</span><span id="hud-hi">High</span></p></div>
+  </div>
+  <p class="hud hud--readout" aria-hidden="true">
+    <b id="hud-coord">06.5244° N, 003.3792° E</b><br>
+    <span id="hud-val">Elev. 000 m</span><br>
+    Demonstration surface
+  </p>
+
+  <div class="wrap hero__in">
+    <p class="label">Geospatial intelligence · Earth observation · Spatial AI</p>
+    <h1 class="hero__title" id="hero-title">
+      <span class="line"><span>Turn Earth</span></span>
+      <span class="line"><span>data into</span></span>
+      <span class="line"><span><em>intelligence.</em></span></span>
+    </h1>
+    <p class="hero__copy">TerraSciQ Analytics combines satellite imagery, spatial data science and AI to help organisations understand risk, monitor change and make better decisions.</p>
+    <div class="hero__cta">
+      <a class="btn" href="#contact" data-magnetic>Start a Project <svg class="arr" aria-hidden="true"><use href="#arr"/></svg></a>
+      <a class="btn btn--ghost" href="#capabilities">Explore Our Capabilities <svg class="arr" aria-hidden="true"><use href="#arr"/></svg></a>
+    </div>
+    <div class="hero__layers-m" role="group" aria-label="Map layers">
+      <button data-layer="elevation" aria-pressed="true">Elevation</button>
+      <button data-layer="flood" aria-pressed="false">Flood risk</button>
+      <button data-layer="landcover" aria-pressed="false">Land cover</button>
+      <button data-layer="air" aria-pressed="false">Air quality</button>
+    </div>
+  </div>
+  <a class="scroll-cue" href="#solutions"><i></i>Scroll</a>
+</section>
+
+<!-- ============ TRUST STRIP ============ -->
+<section class="strip" aria-label="What we do">
+  <div class="wrap">
+    <ul class="strip__row">
+      <li data-n="01">Earth observation</li>
+      <li data-n="02">Spatial AI</li>
+      <li data-n="03">Environmental intelligence</li>
+      <li data-n="04">Data science</li>
+      <li data-n="05">Decision support</li>
+    </ul>
+    <ul class="strip__proof">
+      <li class="rv"><b>Research-driven</b><span>Methods drawn from peer-reviewed work in GeoAI and environmental modelling.</span></li>
+      <li class="rv" style="--d:1"><b>Spatial-first</b><span>Models built for geography, not generic algorithms pointed at a map.</span></li>
+      <li class="rv" style="--d:2"><b>Reproducible</b><span>Versioned data, documented pipelines and analysis you can rerun.</span></li>
+      <li class="rv" style="--d:3"><b>Built for real-world decisions</b><span>Every output is designed around the choice it has to inform.</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ PROBLEM / VALUE ============ -->
+<section class="section light" id="solutions" aria-labelledby="problem-title">
+  <div class="wrap">
+    <div class="head">
+      <p class="label">The problem</p>
+      <h2 class="h2 rv" id="problem-title">From raw data<br>to decisions.</h2>
+      <p class="lede rv" style="--d:1">Organisations now hold more satellite imagery, sensor readings, geospatial layers, climate records and operational data than any team can read. <strong>Data alone does not tell you where the risk is, what is changing, or what to do next.</strong></p>
+    </div>
+
+    <div class="flow">
+      <div class="flow__col rv">
+        <p class="flow__n"><span>01</span><span>What you have</span></p>
+        <h3 class="flow__title">Data</h3>
+        <p>Large, fragmented and collected for other purposes. Useful only once it is cleaned, aligned and made comparable.</p>
+        <div class="flow__viz" aria-hidden="true">
+          <svg viewBox="0 0 400 132" preserveAspectRatio="xMidYMid slice" id="viz-data"></svg>
+        </div>
+        <ul class="flow__list">
+          <li>Satellite imagery <span>Optical · radar · thermal</span></li>
+          <li>Sensor data <span>Stations · gauges</span></li>
+          <li>Geospatial datasets <span>Terrain · land · assets</span></li>
+          <li>Climate data <span>Rainfall · temperature</span></li>
+          <li>Operational records <span>Incidents · inventories</span></li>
+        </ul>
+        <span class="flow__arrow" aria-hidden="true"><svg viewBox="0 0 18 10"><use href="#arr"/></svg></span>
+      </div>
+      <div class="flow__col rv" style="--d:1">
+        <p class="flow__n"><span>02</span><span>What we build</span></p>
+        <h3 class="flow__title">Intelligence</h3>
+        <p>Models and analysis that find the pattern in the data, quantify it, and state how far the result can be trusted.</p>
+        <div class="flow__viz" aria-hidden="true">
+          <svg viewBox="0 0 400 132" preserveAspectRatio="xMidYMid slice" id="viz-intel"></svg>
+        </div>
+        <ul class="flow__list">
+          <li>Risk intelligence <span>Hazard · exposure</span></li>
+          <li>Predictive models <span>Spatial ML</span></li>
+          <li>Spatial evidence <span>Maps · statistics</span></li>
+          <li>Monitoring systems <span>Change over time</span></li>
+          <li>Validation and limits <span>Where it holds</span></li>
+        </ul>
+        <span class="flow__arrow" aria-hidden="true"><svg viewBox="0 0 18 10"><use href="#arr"/></svg></span>
+      </div>
+      <div class="flow__col rv" style="--d:2">
+        <p class="flow__n"><span>03</span><span>What you get</span></p>
+        <h3 class="flow__title">Decision</h3>
+        <p>An answer in the form your team works with: a ranked map, a dashboard, a platform, or a report that survives scrutiny.</p>
+        <div class="flow__viz" aria-hidden="true">
+          <svg viewBox="0 0 400 132" preserveAspectRatio="xMidYMid slice" id="viz-decision"></svg>
+        </div>
+        <ul class="flow__list">
+          <li>Where to act first <span>Prioritisation</span></li>
+          <li>What is exposed <span>Assets · people</span></li>
+          <li>What has changed <span>Monitoring</span></li>
+          <li>Where to build <span>Suitability</span></li>
+          <li>Decision-support tools <span>Web GIS · APIs</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CAPABILITIES ============ -->
+<section class="section dark" id="capabilities" aria-labelledby="cap-title">
+  <div class="wrap">
+    <div class="head">
+      <p class="label">Capabilities</p>
+      <h2 class="h2 rv" id="cap-title">What we build<br>with spatial data.</h2>
+      <p class="lede rv" style="--d:1">Six areas of practice that work as one pipeline. Most projects draw on three or four of them, from the first satellite scene to the interface a decision-maker opens.</p>
+    </div>
+
+    <div class="caps">
+      <article class="cap rv">
+        <div class="cap__viz" aria-hidden="true">
+          <svg viewBox="0 0 320 168">
+            <path class="s dim" d="M70 128l90-34 90 34-90 34z"/>
+            <path class="s up1" d="M70 108l90-34 90 34-90 34z"/>
+            <path class="s a up2" d="M70 88l90-34 90 34-90 34z"/>
+            <path class="s a up2 hid" d="M115 88q22-18 45-4t45 2M100 96q30-12 60 0t60-6"/>
+            <circle class="f up2" cx="160" cy="84" r="3.5"/>
+            <path class="s a up2 hid" d="M160 84V40"/>
+            <circle class="s a up2 hid" cx="160" cy="34" r="6"/>
+          </svg>
+        </div>
+        <div class="cap__body">
+          <p class="cap__n"><b>01</b>Geospatial intelligence</p>
+          <h3 class="h3">Evidence for where things are, and where they should be.</h3>
+          <p>Spatial analysis, GIS, terrain modelling, suitability analysis, exposure mapping and spatial decision support.</p>
+          <ul class="tags"><li>QGIS</li><li>PostGIS</li><li>GDAL</li><li>Terrain modelling</li><li>MCDM</li></ul>
+          <div class="cap__more" id="cap-1"><div><dl>
+            <div><dt>Typical question</dt><dd>Which sites meet every constraint, and which should we rule out first?</dd></div>
+            <div><dt>You receive</dt><dd>Ranked suitability and exposure maps, the criteria and weights behind them, and the geodatabase.</dd></div>
+          </dl></div></div>
+          <button class="cap__toggle" aria-expanded="false" aria-controls="cap-1"><span>Explore capability</span><i></i></button>
+        </div>
+      </article>
+
+      <article class="cap rv" style="--d:1">
+        <div class="cap__viz" aria-hidden="true">
+          <svg viewBox="0 0 320 168">
+            <path class="s dim" d="M20 150Q160 60 300 150"/>
+            <g class="slide">
+              <rect class="s b" x="60" y="26" width="18" height="10" transform="rotate(-18 69 31)"/>
+              <path class="s b" d="M52 36l-10 3M86 26l10-3"/>
+              <path class="s b dim" d="M66 38l-22 96M74 36l34 98"/>
+            </g>
+            <g class="s dim"><path d="M40 134h240M40 118h240M40 102h240M72 96v44M112 96v44M152 96v44M192 96v44M232 96v44"/></g>
+            <rect class="fb hid" x="112" y="102" width="40" height="16" opacity=".5"/>
+            <rect class="f hid" x="152" y="118" width="40" height="16" opacity=".5"/>
+            <path class="s a draw" d="M200 60l14-10 14 16 14-22 14 12 14-18 14 8"/>
+          </svg>
+        </div>
+        <div class="cap__body">
+          <p class="cap__n"><b>02</b>Earth observation</p>
+          <h3 class="h3">Decades of change, measured from orbit.</h3>
+          <p>Satellite imagery, land-cover mapping, environmental monitoring, change detection and time-series analysis.</p>
+          <ul class="tags"><li>Sentinel</li><li>Landsat</li><li>MODIS</li><li>Google Earth Engine</li><li>Change detection</li></ul>
+          <div class="cap__more" id="cap-2"><div><dl>
+            <div><dt>Typical question</dt><dd>How has this city, catchment or concession changed since 2005, and how fast?</dd></div>
+            <div><dt>You receive</dt><dd>Classified land-cover epochs, change statistics with accuracy assessment, and a repeatable monitoring workflow.</dd></div>
+          </dl></div></div>
+          <button class="cap__toggle" aria-expanded="false" aria-controls="cap-2"><span>Explore capability</span><i></i></button>
+        </div>
+      </article>
+
+      <article class="cap rv" style="--d:2">
+        <div class="cap__viz" aria-hidden="true">
+          <svg viewBox="0 0 320 168">
+            <g class="s dim"><path d="M34 52h64M34 68h64M34 84h64M34 100h64M34 116h64M34 52v64M50 52v64M66 52v64M82 52v64M98 52v64"/></g>
+            <rect class="f" x="50" y="68" width="16" height="16" opacity=".7"/><rect class="fb" x="66" y="84" width="16" height="16" opacity=".6"/><rect class="fo hid" x="34" y="100" width="16" height="16" opacity=".7"/>
+            <g class="s"><path class="draw a" d="M98 60L150 44M98 84L150 84M98 108L150 124M150 44L206 64M150 84L206 64M150 124L206 104M150 44L206 104M150 84L206 104M206 64L256 84M206 104L256 84"/></g>
+            <g class="s"><circle cx="150" cy="44" r="5"/><circle cx="150" cy="84" r="5"/><circle cx="150" cy="124" r="5"/><circle cx="206" cy="64" r="5"/><circle cx="206" cy="104" r="5"/></g>
+            <circle class="f grow" cx="256" cy="84" r="6"/>
+            <path class="s a hid" d="M270 84h26"/>
+          </svg>
+        </div>
+        <div class="cap__body">
+          <p class="cap__n"><b>03</b>Spatial AI and machine learning</p>
+          <h3 class="h3">Models designed for geography, then explained.</h3>
+          <p>Machine-learning and deep-learning models built specifically for spatial and environmental problems, with explanation and validation as part of the build.</p>
+          <ul class="tags"><li>XGBoost</li><li>Random forest</li><li>Deep learning</li><li>SHAP</li><li>ALE</li></ul>
+          <div class="cap__more" id="cap-3"><div><dl>
+            <div><dt>Typical question</dt><dd>Can we predict this across the whole region, and why does the model flag these places?</dd></div>
+            <div><dt>You receive</dt><dd>A benchmarked model, driver explanations a non-specialist can read, spatial validation and documented code.</dd></div>
+          </dl></div></div>
+          <button class="cap__toggle" aria-expanded="false" aria-controls="cap-3"><span>Explore capability</span><i></i></button>
+        </div>
+      </article>
+
+      <article class="cap rv">
+        <div class="cap__viz" aria-hidden="true">
+          <svg viewBox="0 0 320 168">
+            <path class="s dim" d="M0 40q60 20 110 6t100 14 110 0M0 132q70-16 130-4t90-10 100 6"/>
+            <path class="fo hid" opacity=".16" d="M0 62Q70 82 130 66t90 22 100-6v40q-50 14-100-4t-90-18T0 108z"/>
+            <path class="fb hid" opacity=".22" d="M0 74Q70 92 130 76t90 22 100-8v20q-50 12-100-6t-90-20T0 96z"/>
+            <path class="s b" d="M0 84Q70 102 130 86t90 22 100-10"/>
+            <path class="s b dim" d="M130 86q-14-26-30-44M220 108q14 22 24 44"/>
+            <g class="s o hid"><rect x="150" y="60" width="9" height="9"/><rect x="166" y="72" width="9" height="9"/><rect x="92" y="96" width="9" height="9"/></g>
+            <g class="s dim"><rect x="40" y="48" width="9" height="9"/><rect x="250" y="62" width="9" height="9"/><rect x="270" y="126" width="9" height="9"/></g>
+          </svg>
+        </div>
+        <div class="cap__body">
+          <p class="cap__n"><b>04</b>Climate and disaster risk</p>
+          <h3 class="h3">Where hazard concentrates, and what sits in its path.</h3>
+          <p>Flood susceptibility, hazard modelling, exposure assessment, vulnerability analysis and climate-risk intelligence.</p>
+          <ul class="tags"><li>Flood susceptibility</li><li>Hazard mapping</li><li>Exposure</li><li>Uncertainty</li></ul>
+          <div class="cap__more" id="cap-4"><div><dl>
+            <div><dt>Typical question</dt><dd>Which districts, assets and populations face the highest flood risk, and how confident is that?</dd></div>
+            <div><dt>You receive</dt><dd>Susceptibility and exposure maps, counts of buildings and people affected, and a reliability layer for every prediction.</dd></div>
+          </dl></div></div>
+          <button class="cap__toggle" aria-expanded="false" aria-controls="cap-4"><span>Explore capability</span><i></i></button>
+        </div>
+      </article>
+
+      <article class="cap rv" style="--d:1">
+        <div class="cap__viz" aria-hidden="true">
+          <svg viewBox="0 0 320 168" id="viz-env"></svg>
+        </div>
+        <div class="cap__body">
+          <p class="cap__n"><b>05</b>Environmental analytics</p>
+          <h3 class="h3">Continuous surfaces from sparse measurements.</h3>
+          <p>Air quality, vegetation, urban heat, urban growth, environmental monitoring and spatial prediction.</p>
+          <ul class="tags"><li>Air quality</li><li>Land surface temperature</li><li>NDVI</li><li>Kriging</li></ul>
+          <div class="cap__more" id="cap-5"><div><dl>
+            <div><dt>Typical question</dt><dd>We have twenty monitoring stations. What is happening between them?</dd></div>
+            <div><dt>You receive</dt><dd>Predicted concentration or temperature surfaces, hotspot maps, and the climatic and land-use drivers behind them.</dd></div>
+          </dl></div></div>
+          <button class="cap__toggle" aria-expanded="false" aria-controls="cap-5"><span>Explore capability</span><i></i></button>
+        </div>
+      </article>
+
+      <article class="cap rv" style="--d:2">
+        <div class="cap__viz" aria-hidden="true">
+          <svg viewBox="0 0 320 168">
+            <rect class="s" x="46" y="28" width="228" height="118"/>
+            <path class="s" d="M46 44h228M104 44v102"/>
+            <g class="s dim"><path d="M56 60h36M56 72h28M56 84h36M56 96h22"/></g>
+            <rect class="f hid" x="56" y="108" width="36" height="5" opacity=".8"/>
+            <path class="s a draw" d="M114 124q26-44 50-26t44-30 56-10"/>
+            <path class="s dim" d="M114 96q30 10 60-8t90 4"/>
+            <g class="fb"><rect class="up1" x="212" y="110" width="8" height="26"/><rect x="226" y="118" width="8" height="18"/><rect class="up1" x="240" y="104" width="8" height="32"/><rect x="254" y="122" width="8" height="14"/></g>
+            <circle class="fo grow" cx="188" cy="82" r="4"/>
+          </svg>
+        </div>
+        <div class="cap__body">
+          <p class="cap__n"><b>06</b>Intelligence platforms</p>
+          <h3 class="h3">Models turned into systems people open every day.</h3>
+          <p>Web GIS, dashboards, APIs and interactive decision-support platforms that put analysis in front of the people who act on it.</p>
+          <ul class="tags"><li>Web GIS</li><li>Dashboards</li><li>APIs</li><li>Data pipelines</li></ul>
+          <div class="cap__more" id="cap-6"><div><dl>
+            <div><dt>Typical question</dt><dd>How do our planners use this model without opening a notebook or GIS package?</dd></div>
+            <div><dt>You receive</dt><dd>A hosted map application or dashboard, the API behind it, an automated update pipeline, and handover documentation.</dd></div>
+          </dl></div></div>
+          <button class="cap__toggle" aria-expanded="false" aria-controls="cap-6"><span>Explore capability</span><i></i></button>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TECHNOLOGY ============ -->
+<section class="section light" aria-labelledby="tech-title">
+  <div class="wrap">
+    <div class="head">
+      <p class="label">Technology and methods</p>
+      <h2 class="h2 rv" id="tech-title">Built on serious geospatial and AI infrastructure.</h2>
+      <p class="lede rv" style="--d:1">We choose tools for fitness to the problem, favour open and inspectable components, and hand over pipelines your own team can run.</p>
+    </div>
+    <div class="stack">
+      <div class="stack__row rv">
+        <p class="stack__fn"><span>A</span><b>Earth observation</b></p>
+        <p>Acquiring, correcting and analysing multi-decade satellite archives at regional scale.</p>
+        <ul class="stack__tools"><li>Sentinel</li><li>Landsat</li><li>MODIS</li><li>Google Earth Engine</li></ul>
+      </div>
+      <div class="stack__row rv">
+        <p class="stack__fn"><span>B</span><b>Geospatial</b></p>
+        <p>Storing, transforming and analysing vector, raster and terrain data with reproducible scripts.</p>
+        <ul class="stack__tools"><li>QGIS</li><li>PostGIS</li><li>GDAL</li><li>Rasterio</li></ul>
+      </div>
+      <div class="stack__row rv">
+        <p class="stack__fn"><span>C</span><b>AI and data science</b></p>
+        <p>Training, comparing and explaining predictive models, with validation that respects spatial structure.</p>
+        <ul class="stack__tools"><li>Python</li><li>XGBoost</li><li>LightGBM</li><li>CatBoost</li><li>Deep learning</li><li>SHAP</li></ul>
+      </div>
+      <div class="stack__row rv">
+        <p class="stack__fn"><span>D</span><b>Web and systems</b></p>
+        <p>Delivering results as interfaces and services that update when the data does.</p>
+        <ul class="stack__tools"><li>Web GIS</li><li>APIs</li><li>Dashboards</li><li>Cloud-ready pipelines</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SELECTED WORK ============ -->
+<section class="section dark" id="work" aria-labelledby="work-title">
+  <div class="wrap">
+    <div class="head">
+      <p class="label">Selected work</p>
+      <h2 class="h2 rv" id="work-title">Real problems. Spatial intelligence. Measurable outputs.</h2>
+      <p class="lede rv" style="--d:1">The methods we deliver were developed and tested in published, peer-reviewed studies led or co-authored by our founder. These are the outputs, shown as they were published.</p>
+    </div>
+
+    <!-- Case 1 -->
+    <article class="case">
+      <div class="case__media rv">
+        <figure class="plate">
+          <img src="assets/img/work-flood-kl.webp" width="1440" height="1046" loading="lazy" decoding="async" alt="Three flood susceptibility maps of Kuala Lumpur produced by logistic regression, random forest and XGBoost models, classed from very low to very high, with past flood locations and the river network overlaid.">
+        </figure>
+        <p class="plate__bar"><span>Flood susceptibility, Kuala Lumpur · three models compared</span><span>Tella et al. 2026 · <a href="https://doi.org/10.1007/s11269-025-04430-0" target="_blank" rel="noopener">CC BY 4.0</a></span></p>
+        <div class="thumbs">
+          <figure><img src="assets/img/work-flood-factors.webp" width="1200" height="851" loading="lazy" decoding="async" alt="Twelve flood conditioning factor maps including elevation, slope, rainfall, drainage density, land cover and distance to river."><figcaption>12 conditioning layers: terrain, rainfall, rivers, land cover</figcaption></figure>
+          <figure><img src="assets/img/work-flood-ale.webp" width="1200" height="838" loading="lazy" decoding="async" alt="Accumulated local effects plots showing how each variable changes predicted flood susceptibility, with thresholds marked."><figcaption>Model explanation: thresholds where risk changes</figcaption></figure>
+        </div>
+      </div>
+      <div class="case__text rv" style="--d:1">
+        <p class="case__kicker"><span>Flood risk / GeoAI</span><span>Kuala Lumpur, Malaysia</span></p>
+        <h3 class="case__title">Predicting where flood risk is most likely to concentrate.</h3>
+        <dl class="case__facts">
+          <div><dt>Challenge</dt><dd>Accurate flood models are often black boxes. Planners need to know why a district is flagged before they commit drainage budgets or restrict development.</dd></div>
+          <div><dt>Approach</dt><dd>Twelve terrain, hydrological, rainfall and land-cover layers were assembled against historical flood records. Three models were benchmarked, then opened up with Accumulated Local Effects to expose the thresholds at which each factor raises or lowers risk.</dd></div>
+          <div><dt>Technology</dt><dd>Python, XGBoost, random forest, logistic regression, ALE, GIS terrain and hydrology processing.</dd></div>
+          <div><dt>Outcome</dt><dd><strong>City-wide susceptibility maps validated against recorded floods</strong>, with rainfall, river proximity, elevation, slope and vegetation identified as the dominant drivers and explicit thresholds for each.</dd></div>
+        </dl>
+        <div class="case__metrics">
+          <div><b data-count="0.98" data-dec="2">0.98</b><span>AUC, ensemble models</span></div>
+          <div><b data-count="94" data-suffix="%">94%</b><span>Classification accuracy</span></div>
+          <div><b data-count="900">900</b><span>Flood and non-flood reference points</span></div>
+        </div>
+        <p class="case__src">Published in <a href="https://doi.org/10.1007/s11269-025-04430-0" target="_blank" rel="noopener">Water Resources Management (2026)</a>. Figures reproduced under CC BY 4.0.</p>
+      </div>
+    </article>
+
+    <!-- Case 2 -->
+    <article class="case">
+      <div class="case__media rv">
+        <div class="compare" id="compare" style="--p:50%">
+          <canvas id="lc-a" aria-hidden="true"></canvas>
+          <div class="compare__top"><canvas id="lc-b" aria-hidden="true"></canvas></div>
+          <span class="compare__yr compare__yr--a">Earlier epoch</span>
+          <span class="compare__yr compare__yr--b">Two decades later</span>
+          <span class="compare__line"></span>
+          <input type="range" min="0" max="100" value="50" aria-label="Drag to compare land cover between the earlier and later epoch">
+        </div>
+        <div class="plate__bar">
+          <ul class="legend"><li><i style="background:#d9623a"></i>Built-up</li><li><i style="background:#4f8a4c"></i>Vegetation</li><li><i style="background:#b9ad62"></i>Cropland</li><li><i style="background:#2f7fb8"></i>Water</li></ul>
+          <span>Illustrative rendering · drag to compare</span>
+        </div>
+      </div>
+      <div class="case__text rv" style="--d:1">
+        <p class="case__kicker"><span>Urban change / Earth observation</span><span>Multi-temporal satellite archive</span></p>
+        <h3 class="case__title">Twenty years of urban expansion, revealed from space.</h3>
+        <dl class="case__facts">
+          <div><dt>Challenge</dt><dd>Cities change faster than hazard maps are updated. Showing how growth has shifted flood risk requires a consistent land-cover record across two decades.</dd></div>
+          <div><dt>Approach</dt><dd>Multi-temporal imagery was classified into land-cover maps for each epoch in Google Earth Engine, change was quantified between them, and explainable machine learning linked that change statistically to shifting flood risk.</dd></div>
+          <div><dt>Technology</dt><dd>Google Earth Engine, Landsat archive, land-cover classification, change detection, explainable ML.</dd></div>
+          <div><dt>Outcome</dt><dd><strong>A repeatable workflow from raw archive to quantified change and its effect on risk</strong>, suitable for periodic updates as new imagery arrives.</dd></div>
+        </dl>
+        <p class="case__src">Published in <a href="https://doi.org/10.1007/s41748-025-00878-7" target="_blank" rel="noopener">Earth Systems and Environment (2025)</a>. The visual is an illustrative rendering; published maps are in the paper.</p>
+      </div>
+    </article>
+
+    <!-- Case 3 -->
+    <article class="case">
+      <div class="case__media rv">
+        <figure class="plate">
+          <img src="assets/img/work-lagos-suitability.webp" width="1600" height="739" loading="lazy" decoding="async" alt="Landfill suitability map of Lagos State, Nigeria, classed from very low to very high suitability, with local government areas labelled.">
+        </figure>
+        <p class="plate__bar"><span>Landfill suitability, Lagos State · five classes</span><span>Tella et al. 2024 · <a href="https://doi.org/10.1007/s13762-024-05803-5" target="_blank" rel="noopener">CC BY 4.0</a></span></p>
+      </div>
+      <div class="case__text rv" style="--d:1">
+        <p class="case__kicker"><span>Site suitability / Decision support</span><span>Lagos State, Nigeria</span></p>
+        <h3 class="case__title">Finding where a megacity can safely site new infrastructure.</h3>
+        <dl class="case__facts">
+          <div><dt>Challenge</dt><dd>Rapid urbanisation has absorbed Lagos's existing landfills. New sites must balance water bodies, settlements, roads, geology and land use, and the choice has to be defensible.</dd></div>
+          <div><dt>Approach</dt><dd>Nine spatial criteria were weighted with a fuzzy analytic hierarchy process informed by experts and residents, then combined in GIS into a state-wide suitability surface.</dd></div>
+          <div><dt>Technology</dt><dd>GIS-based multi-criteria decision making, fuzzy AHP, remote sensing, terrain and proximity analysis.</dd></div>
+          <div><dt>Outcome</dt><dd><strong>A ranked map covering the whole state</strong>, showing that high-suitability land is scarce and concentrated in Epe, Ikorodu and Ibeju-Lekki.</dd></div>
+        </dl>
+        <div class="case__metrics">
+          <div><b data-count="9">9</b><span>Weighted spatial criteria</span></div>
+          <div><b data-count="3.4" data-dec="1" data-suffix="%">3.4%</b><span>Of the state rated very high suitability</span></div>
+          <div><b data-count="128" data-suffix=" km²">128 km²</b><span>Priority area identified</span></div>
+        </div>
+        <p class="case__src">Published in the <a href="https://doi.org/10.1007/s13762-024-05803-5" target="_blank" rel="noopener">International Journal of Environmental Science and Technology (2024)</a>. Figure reproduced under CC BY 4.0.</p>
+      </div>
+    </article>
+
+    <!-- Case 4 -->
+    <article class="case">
+      <div class="case__media rv">
+        <div class="plate plate--dark"><canvas id="aq-canvas" style="aspect-ratio:16/10.4" role="img" aria-label="Illustrative predicted air-quality surface with monitoring station locations."></canvas></div>
+        <div class="plate__bar">
+          <ul class="legend"><li><i style="background:linear-gradient(90deg,#12322e,#8db548,#ee6a2e);width:46px"></i>Predicted PM10, low to high</li><li><i style="border:1px solid #fff;border-radius:50%"></i>Monitoring station</li></ul>
+          <span>Illustrative rendering</span>
+        </div>
+      </div>
+      <div class="case__text rv" style="--d:1">
+        <p class="case__kicker"><span>Environmental intelligence</span><span>Selangor, Malaysia</span></p>
+        <h3 class="case__title">Turning sparse air-quality observations into continuous spatial intelligence.</h3>
+        <dl class="case__facts">
+          <div><dt>Challenge</dt><dd>Monitoring stations are few and far apart, and pollution shifts with weather and season. Agencies need to know what is happening between stations, and what drives it.</dd></div>
+          <div><dt>Approach</dt><dd>Station records were combined with climatic and land variables. Machine-learning, geostatistical and regression models were compared for predicting PM10 across the state and locating persistent hotspots.</dd></div>
+          <div><dt>Technology</dt><dd>Random forest, XGBoost, K-nearest neighbours, support vector regression, kriging, IDW, GIS.</dd></div>
+          <div><dt>Outcome</dt><dd><strong>State-wide PM10 prediction and hotspot maps</strong>, with the influence of climate and season quantified, across four peer-reviewed studies.</dd></div>
+        </dl>
+        <p class="case__src">Published in <a href="https://doi.org/10.1007/s11356-021-16150-0" target="_blank" rel="noopener">Environmental Science and Pollution Research (2021)</a> and <a href="https://doi.org/10.1016/j.apr.2021.101202" target="_blank" rel="noopener">Atmospheric Pollution Research (2021)</a>. The visual is an illustrative rendering.</p>
+      </div>
+    </article>
+
+    <div class="more-work" id="more-work">
+      <div class="more-work__panel" id="more-work-panel"><div>
+        <article class="mw"><span class="mw__n">05</span><h3>From hazard to exposure: who and what is in the flood zone</h3><p>Deep-learning and ensemble susceptibility surfaces linked to buildings, land use and population, explained with SHAP and LIME.</p><p class="mw__meta">Sustainable Development · 2026</p></article>
+        <article class="mw"><span class="mw__n">06</span><h3>Landslide proneness along a highway corridor</h3><p>GIS and multi-criteria analysis ranking slope-failure risk along the Taiping to Ipoh highway segment in Malaysia.</p><p class="mw__meta">Sustainability · 2022</p></article>
+        <article class="mw"><span class="mw__n">07</span><h3>Land-use dynamics in conflict-affected regions</h3><p>Earth observation tracking how land use shifted across armed-conflict hotspots in north-east Nigeria.</p><p class="mw__meta">Land Use Policy · 2025</p></article>
+        <article class="mw"><span class="mw__n">08</span><h3>Aerosols, land cover and roads in a megacity</h3><p>Landsat-derived aerosol concentration mapped against land cover and the road network across Lagos.</p><p class="mw__meta">Environ. Sci. Pollut. Res. · 2023</p></article>
+        <article class="mw"><span class="mw__n">09</span><h3>AI capability gaps across ASEAN institutions</h3><p>A funded multi-country study of institutional barriers to AI adoption, leading to recommendations for a regional roadmap.</p><p class="mw__meta">APNIC Foundation · 2025 to 2026</p></article>
+      </div></div>
+      <div class="work__cta">
+        <p>Client engagements are confidential by default. Project details are published only with written permission.</p>
+        <div>
+          <button class="btn btn--ghost" id="more-work-btn" aria-expanded="false" aria-controls="more-work-panel"><span>View all work</span> <svg class="arr" aria-hidden="true"><use href="#arr"/></svg></button>
+          <a class="btn" href="#contact" data-magnetic>Start a Project <svg class="arr" aria-hidden="true"><use href="#arr"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SIGNATURE DIFFERENTIATOR ============ -->
+<section class="section dark-2" id="trust" aria-labelledby="aoa-title">
+  <div class="wrap">
+    <div class="head">
+      <p class="label">How we are different</p>
+      <h2 class="h2 rv" id="aoa-title">Models you can trust beyond the training area.</h2>
+      <p class="lede rv" style="--d:1">A model learns from the places where data happened to exist, then gets applied everywhere else. In unfamiliar terrain it can be badly wrong and look exactly as confident.</p>
+    </div>
+
+    <div class="aoa">
+      <div class="rv">
+        <p class="lede">We map the model's <strong>area of applicability</strong>: the part of your region where conditions resemble what the model has seen, and predictions can be relied on. Outside it, the map says so.</p>
+        <p class="aoa__quote">We do not just ask whether a model is accurate. We ask where it remains reliable.</p>
+        <div class="steps" id="aoa-steps">
+          <button class="step" data-step="1"><b>Train</b><span>Fit candidate models on locations with trusted observations, and record the conditions they cover.</span></button>
+          <button class="step" data-step="2"><b>Validate</b><span>Test on spatially separate blocks, so accuracy reflects new places rather than neighbours of the training points.</span></button>
+          <button class="step" data-step="3"><b>Understand limits</b><span>Compare every location against the training conditions and flag where the model would be extrapolating.</span></button>
+          <button class="step is-on" data-step="4"><b>Deploy</b><span>Release predictions with a reliability layer attached, so users see both the answer and how far to trust it.</span></button>
+        </div>
+      </div>
+
+      <figure class="aoa__map rv" id="aoa-map" data-step="4" style="--d:1">
+        <svg viewBox="0 0 720 500" role="img" aria-label="Schematic map showing a training area with sample points, the wider area of applicability where predictions are reliable, and hatched out-of-domain regions where the model is extrapolating.">
+          <defs>
+            <clipPath id="region"><path d="M96 150q40-86 150-92t170 22 150-10 96 110-22 150-90 96-170 20-170-8-116-110 2-178z"/></clipPath>
+            <pattern id="g" width="48" height="48" patternUnits="userSpaceOnUse"><path d="M48 0H0V48" fill="none" stroke="rgba(233,237,233,.07)"/></pattern>
+          </defs>
+          <rect width="720" height="500" fill="url(#g)"/>
+          <g clip-path="url(#region)">
+            <rect width="720" height="500" fill="#101815"/>
+            <g class="lyr l-pred">
+              <path d="M60 300q120-90 250-40t200-80 200 40v300H60z" fill="#1d4b3f" opacity=".7"/>
+              <path d="M120 360q110-70 220-30t190-70 160 30v230H120z" fill="#3f7a4a" opacity=".6"/>
+              <path d="M210 420q90-56 170-20t150-50 120 30v130H210z" fill="#8db548" opacity=".5"/>
+              <path d="M330 110q60-30 110 6t-10 70-110 0-20-60z" fill="#3f7a4a" opacity=".5"/>
+            </g>
+            <g fill="none" stroke="rgba(233,237,233,.16)">
+              <path d="M40 240q150-110 290-50t210-90 200 30M40 300q150-100 290-44t210-84 200 40M40 360q150-90 290-36t210-74 200 40M40 420q150-80 290-30t210-64 200 36M40 180q150-110 290-60t210-90 200 20"/>
+            </g>
+            <g class="lyr l-ood">
+              <path d="M540 60q110 10 150 110t-30 150q-50-30-70-100t-50-160z" fill="url(#hatch)" opacity=".85"/>
+              <path d="M90 330q50 20 70 80t40 70q-70 0-110-50t0-100z" fill="url(#hatch)" opacity=".85"/>
+            </g>
+          </g>
+          <path d="M96 150q40-86 150-92t170 22 150-10 96 110-22 150-90 96-170 20-170-8-116-110 2-178z" fill="none" stroke="rgba(233,237,233,.5)"/>
+          <g class="lyr l-aoa">
+            <path d="M150 150q60-70 170-64t150 30 90 20q30 80 30 150t-70 110-150 20-150-10q-40-30-80-110t10-146z" fill="rgba(141,181,72,.07)" stroke="#8db548" stroke-width="1.5"/>
+            <text x="420" y="398" fill="#8db548" font-family="IBM Plex Mono, monospace" font-size="11" letter-spacing="1.4">AREA OF APPLICABILITY</text>
+          </g>
+          <g class="lyr l-train">
+            <path d="M176 128h196v150H176z" fill="none" stroke="#e9ede9" stroke-dasharray="5 5"/>
+            <g fill="#e9ede9"><circle cx="200" cy="156" r="3"/><circle cx="236" cy="190" r="3"/><circle cx="262" cy="150" r="3"/><circle cx="300" cy="212" r="3"/><circle cx="330" cy="160" r="3"/><circle cx="214" cy="236" r="3"/><circle cx="350" cy="246" r="3"/><circle cx="282" cy="254" r="3"/><circle cx="246" cy="222" r="3"/><circle cx="318" cy="194" r="3"/></g>
+            <text x="176" y="118" fill="#e9ede9" font-family="IBM Plex Mono, monospace" font-size="11" letter-spacing="1.4">TRAINING AREA</text>
+          </g>
+          <g class="lyr l-val" fill="none" stroke="#4fcbee">
+            <rect x="420" y="170" width="9" height="9"/><rect x="470" y="250" width="9" height="9"/><rect x="390" y="300" width="9" height="9"/><rect x="250" y="330" width="9" height="9"/><rect x="520" y="200" width="9" height="9"/><rect x="330" y="360" width="9" height="9"/>
+            <text x="440" y="164" fill="#4fcbee" stroke="none" font-family="IBM Plex Mono, monospace" font-size="11" letter-spacing="1.4">INDEPENDENT TEST BLOCKS</text>
+          </g>
+          <g class="lyr l-ood">
+            <path d="M620 150h44" stroke="#ee6a2e"/><text x="560" y="52" fill="#ee6a2e" font-family="IBM Plex Mono, monospace" font-size="11" letter-spacing="1.4">OUT OF DOMAIN</text>
+            <text x="70" y="474" fill="#ee6a2e" font-family="IBM Plex Mono, monospace" font-size="11" letter-spacing="1.4">OUT OF DOMAIN</text>
+          </g>
+          <g font-family="IBM Plex Mono, monospace" font-size="10" fill="rgba(233,237,233,.45)" letter-spacing="1"><text x="14" y="22">N 06°45′</text><text x="14" y="490">N 06°15′</text><text x="640" y="490">E 004°15′</text></g>
+        </svg>
+        <ul class="aoa__legend">
+          <li><i style="border:1px dashed #e9ede9"></i>Training area</li>
+          <li><i style="border:1.5px solid #8db548;background:rgba(141,181,72,.15)"></i>Applicable</li>
+          <li><i style="background:linear-gradient(90deg,#1d4b3f,#8db548)"></i>Reliable prediction</li>
+          <li><i style="background:repeating-linear-gradient(45deg,#ee6a2e 0 1.5px,transparent 1.5px 4px)"></i>Out of domain</li>
+        </ul>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DECISION SUPPORT ============ -->
+<section class="section light" aria-labelledby="ds-title">
+  <div class="wrap">
+    <div class="head">
+      <p class="label">Decision support</p>
+      <h2 class="h2 rv" id="ds-title">Because a model is only useful when someone can use it.</h2>
+      <p class="lede rv" style="--d:1">We take projects from raw data through analysis and modelling into an operational interface. One team, one chain of accountability, no gap between the analysis and the tool.</p>
+    </div>
+
+    <ol class="rail" id="rail">
+      <li style="--i:0"><small>01</small><b>Satellite data</b><span>Imagery, terrain, sensors and your own records.</span></li>
+      <li style="--i:1"><small>02</small><b>Data pipeline</b><span>Cleaned, aligned, versioned and repeatable.</span></li>
+      <li style="--i:2"><small>03</small><b>AI / spatial model</b><span>Benchmarked, explained and documented.</span></li>
+      <li style="--i:3"><small>04</small><b>Validation</b><span>Spatially independent tests and applicability limits.</span></li>
+      <li style="--i:4"><small>05</small><b>Web platform</b><span>Maps, dashboards and APIs your team can open.</span></li>
+      <li style="--i:5"><small>06</small><b>Decision</b><span>Where to act, what to protect, what to build.</span></li>
+    </ol>
+
+    <div class="console rv" id="console" aria-label="Concept decision-support interface">
+      <div class="console__top"><b>Flood risk console · Klang Valley</b><span>Model v2.3 · validated · updated monthly</span></div>
+      <div class="console__side" aria-hidden="true">
+        <div><h4>Layers</h4><ul>
+          <li class="on"><i></i>Susceptibility</li>
+          <li class="on"><i></i>Reliability mask</li>
+          <li class="on"><i></i>River network</li>
+          <li class="off"><i></i>Buildings exposed</li>
+          <li class="off"><i></i>Population</li>
+        </ul></div>
+        <div><h4>Scenario</h4><ul>
+          <li class="on"><i></i>Current land cover</li>
+          <li class="off"><i></i>Planned development</li>
+        </ul></div>
+      </div>
+      <div class="console__map">
+        <img src="assets/img/console-map.webp" width="780" height="1260" loading="lazy" decoding="async" alt="">
+        <span class="console__pin" aria-hidden="true"></span>
+        <p class="console__tip" aria-hidden="true">District 04<br>Susceptibility <b>Very high</b><br>Reliability Inside AoA</p>
+      </div>
+      <div class="console__panel" aria-hidden="true">
+        <div><h4>Area by class</h4><ul class="bars">
+          <li><span>Very high</span><i style="--w:34%;--c:#ee6a2e"></i><span>34%</span></li>
+          <li><span>High</span><i style="--w:6%;--c:#e6c84a"></i><span>6%</span></li>
+          <li><span>Moderate</span><i style="--w:5%"></i><span>5%</span></li>
+          <li><span>Low</span><i style="--w:14%;--c:#4fcbee"></i><span>14%</span></li>
+          <li><span>Very low</span><i style="--w:41%;--c:#8f9c96"></i><span>41%</span></li>
+        </ul></div>
+        <p class="console__flag"><b>Reliability notice</b>Predictions flagged where conditions fall outside the training domain.</p>
+      </div>
+    </div>
+    <p class="console__note"><span>Concept interface. Map from published flood susceptibility modelling; panel values are illustrative.</span><a class="link" href="#contact">Discuss a platform <svg class="arr" aria-hidden="true"><use href="#arr"/></svg></a></p>
+  </div>
+</section>
+
+<!-- ============ SECTORS ============ -->
+<section class="section dark" aria-labelledby="sec-title">
+  <div class="wrap">
+    <div class="head">
+      <p class="label">Sectors</p>
+      <h2 class="h2 rv" id="sec-title">Built for decisions across sectors.</h2>
+      <p class="lede rv" style="--d:1">The data changes from sector to sector. The question rarely does: where, how much, how certain, and what next.</p>
+    </div>
+    <div class="sectors">
+      <article class="sector rv"><span class="sector__n">01</span><h3>Government and public sector</h3><p>Hazard assessment, infrastructure prioritisation and environmental monitoring, delivered as evidence that stands up in public decision-making.</p></article>
+      <article class="sector rv"><span class="sector__n">02</span><h3>Infrastructure and engineering</h3><p>Terrain analysis, site and corridor screening, environmental constraints and exposure assessment before design money is committed.</p></article>
+      <article class="sector rv"><span class="sector__n">03</span><h3>Environment and climate</h3><p>Monitoring environmental change, air-quality estimation, vegetation analysis and climate-risk assessment across large areas.</p></article>
+      <article class="sector rv"><span class="sector__n">04</span><h3>Urban development</h3><p>Urban growth and land-use change tracking, urban heat exposure, and planning evidence for where development pressure is heading.</p></article>
+      <article class="sector rv"><span class="sector__n">05</span><h3>Agriculture and natural resources</h3><p>Land-cover analysis, vegetation monitoring and suitability mapping for land, water and resource management.</p></article>
+      <article class="sector rv"><span class="sector__n">06</span><h3>Research and development</h3><p>Method design, reproducible workflows, modelling support and technical review for institutions and funded programmes.</p></article>
+      <article class="sector rv"><span class="sector__n">07</span><h3>Disaster risk management</h3><p>Susceptibility and hazard mapping, exposure analysis and monitoring products for preparedness, response planning and insurance.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section class="section light" id="about" aria-labelledby="about-title">
+  <div class="wrap">
+    <div class="head">
+      <p class="label">About</p>
+      <h2 class="h2 rv" id="about-title">Research-grade thinking. Built for real-world decisions.</h2>
+    </div>
+    <div class="about">
+      <div class="about__copy rv">
+        <p class="lede">TerraSciQ Analytics operates where scientific research meets practical implementation.</p>
+        <div class="body">
+          <p>We use rigorous spatial science, Earth observation and AI methods, and we design every output around the decision a client actually has to make. That means stating assumptions, reporting uncertainty in plain language, and saying clearly what the available data can and cannot support.</p>
+          <p>Engagements range from a short feasibility assessment to end-to-end delivery, from data preparation through to a working platform, with documentation and handover so your team is never dependent on ours.</p>
+        </div>
+        <p class="facts"><span><b>Founded</b> 2026</span><span><b>Base</b> Nigeria</span><span><b>Delivery</b> International clients</span></p>
+      </div>
+      <aside class="lead rv" style="--d:1" aria-label="Leadership">
+        <p class="lead__role">Founder and principal</p>
+        <h3 class="lead__name">Abdulwaheed Tella</h3>
+        <p class="lead__post">Gs., Ts. · GeoAI and environmental modelling</p>
+        <p class="lead__bio">Works on explainable, transferable machine learning for flood risk, urban heat and environmental monitoring, and on getting model outputs into a form planners and engineers can use.</p>
+        <ul class="cred">
+          <li><span>Registered</span><span>Professional Technologist (MBOT) and Geospatialist (IGRSM), Malaysia</span></li>
+          <li><span>Research</span><span>Doctoral research in GeoAI and flood modelling, Monash University Malaysia</span></li>
+          <li><span>Collaboration</span><span>Visiting research associate, Curtin University, on model reliability</span></li>
+          <li><span>Funding</span><span>APNIC Foundation research fellowship, principal investigator</span></li>
+          <li><span>Recognition</span><span>Best Student Paper Award, IEEE Geoscience and Remote Sensing Symposium 2024</span></li>
+        </ul>
+        <a class="link" href="https://www.linkedin.com/in/abdulwaheedtella" target="_blank" rel="noopener">LinkedIn profile <svg class="arr" aria-hidden="true"><use href="#arr"/></svg></a>
+      </aside>
+    </div>
+    <div class="stats" id="stats">
+      <div class="stat rv"><b data-count="16">16</b><span>Peer-reviewed journal articles behind our methods, most in first-quartile journals.</span></div>
+      <div class="stat rv" style="--d:1"><b data-count="1000" data-suffix="+" data-sep="1">1,000+</b><span>Citations of that work by other researchers (Google Scholar, September 2026).</span></div>
+      <div class="stat rv" style="--d:2"><b data-count="25" data-suffix="+">25+</b><span>Manuscripts peer-reviewed for indexed journals. We know what scrutiny looks like.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RESEARCH ============ -->
+<section class="section dark" id="research" aria-labelledby="res-title">
+  <div class="wrap">
+    <div class="head">
+      <p class="label">Research and insights</p>
+      <h2 class="h2 rv" id="res-title">Where research becomes applied intelligence.</h2>
+      <p class="lede rv" style="--d:1">Our methods are published, cited and open to inspection. A selection of the work behind the practice.</p>
+    </div>
+
+    <div class="filters" role="group" aria-label="Filter publications by topic">
+      <button class="filter" data-filter="all" aria-pressed="true">All</button>
+      <button class="filter" data-filter="flood" aria-pressed="false">Flood and risk</button>
+      <button class="filter" data-filter="xai" aria-pressed="false">Explainable AI</button>
+      <button class="filter" data-filter="eo" aria-pressed="false">Earth observation</button>
+      <button class="filter" data-filter="air" aria-pressed="false">Air quality</button>
+      <button class="filter" data-filter="decision" aria-pressed="false">Decision support</button>
+    </div>
+
+    <div class="pubs" id="pubs">
+      <article class="pub" data-topics="flood xai"><span class="pub__yr">2026</span><h3 class="pub__title"><a href="https://doi.org/10.1002/sd.7077" target="_blank" rel="noopener">From Prediction to Prevention: An Explainable GeoAI Framework for Flood Susceptibility and Urban Exposure Assessment</a></h3><p class="pub__venue">Sustainable Development<span>Flood risk · Explainable AI</span></p><a class="link" href="https://doi.org/10.1002/sd.7077" target="_blank" rel="noopener" aria-label="Read paper: From Prediction to Prevention">Read paper <svg class="arr" aria-hidden="true"><use href="#arr"/></svg></a></article>
+      <article class="pub" data-topics="flood xai"><span class="pub__yr">2026</span><h3 class="pub__title"><a href="https://doi.org/10.1007/s11269-025-04430-0" target="_blank" rel="noopener">Advancing Flood Susceptibility Mapping with Explainable AI: A Novel Application of Accumulated Local Effects</a></h3><p class="pub__venue">Water Resources Management<span>Flood risk · Explainable AI · Open access</span></p><a class="link" href="https://doi.org/10.1007/s11269-025-04430-0" target="_blank" rel="noopener" aria-label="Read paper: Advancing Flood Susceptibility Mapping with Explainable AI">Read paper <svg class="arr" aria-hidden="true"><use href="#arr"/></svg></a></article>
+      <article class="pub" data-topics="flood eo"><span class="pub__yr">2025</span><h3 class="pub__title"><a href="https://doi.org/10.1007/s41748-025-00878-7" target="_blank" rel="noopener">Uncovering Spatiotemporal Urban Flood Dynamics: An Explainable GeoAI Approach to Land Cover Change Over Two Decades</a></h3><p class="pub__venue">Earth Systems and Environment<span>Earth observation · Flood risk</span></p><a class="link" href="https://doi.org/10.1007/s41748-025-00878-7" target="_blank" rel="noopener" aria-label="Read paper: Uncovering Spatiotemporal Urban Flood Dynamics">Read paper <svg class="arr" aria-hidden="true"><use href="#arr"/></svg></a></article>
+      <article class="pub" data-topics="eo"><span class="pub__yr">2025</span><h3 class="pub__title"><a href="https://doi.org/10.1016/j.landusepol.2025.107673" target="_blank" rel="noopener">Revealing Land Use Dynamics in Armed-Conflict Hotspots in North-East Nigeria Using Earth Observation Data</a></h3><p class="pub__venue">Land Use Policy<span>Earth observation</span></p><a class="link" href="https://doi.org/10.1016/j.landusepol.2025.107673" target="_blank" rel="noopener" aria-label="Read paper: Revealing Land Use Dynamics in Armed-Conflict Hotspots">Read paper <svg class="arr" aria-hidden="true"><use href="#arr"/></svg></a></article>
+      <article class="pub" data-topics="eo"><span class="pub__yr">2025</span><h3 class="pub__title"><a href="https://doi.org/10.1016/B978-0-443-27372-8.00014-3" target="_blank" rel="noopener">Google Earth Engine and Artificial Intelligence for the SDGs</a></h3><p class="pub__venue">Elsevier, book chapter<span>Earth observation · Methods</span></p><a class="link" href="https://doi.org/10.1016/B978-0-443-27372-8.00014-3" target="_blank" rel="noopener" aria-label="Read chapter: Google Earth Engine and Artificial Intelligence for the SDGs">Read chapter <svg class="arr" aria-hidden="true"><use href="#arr"/></svg></a></article>
+      <article class="pub" data-topics="decision"><span class="pub__yr">2024</span><h3 class="pub__title"><a href="https://doi.org/10.1007/s13762-024-05803-5" target="_blank" rel="noopener">Data-Driven Landfill Suitability Mapping in Lagos State Using GIS-Based Multi-Criteria Decision Making</a></h3><p class="pub__venue">Int. Journal of Environmental Science and Technology<span>Decision support · Open access</span></p><a class="link" href="https://doi.org/10.1007/s13762-024-05803-5" target="_blank" rel="noopener" aria-label="Read paper: Data-Driven Landfill Suitability Mapping in Lagos State">Read paper <svg class="arr" aria-hidden="true"><use href="#arr"/></svg></a></article>
+      <article class="pub" data-topics="flood decision"><span class="pub__yr">2022</span><h3 class="pub__title"><a href="https://doi.org/10.3390/su14159096" target="_blank" rel="noopener">Highway Proneness Appraisal to Landslides along the Taiping to Ipoh Segment, Malaysia, Using MCDM and GIS</a></h3><p class="pub__venue">Sustainability<span>Hazard · Decision support · Open access</span></p><a class="link" href="https://doi.org/10.3390/su14159096" target="_blank" rel="noopener" aria-label="Read paper: Highway Proneness Appraisal to Landslides">Read paper <svg class="arr" aria-hidden="true"><use href="#arr"/></svg></a></article>
+      <article class="pub" data-topics="air"><span class="pub__yr">2021</span><h3 class="pub__title"><a href="https://doi.org/10.1007/s11356-021-16150-0" target="_blank" rel="noopener">GIS-Based Air Quality Modelling: Spatial Prediction of PM10 for Selangor State, Malaysia Using Machine Learning</a></h3><p class="pub__venue">Environmental Science and Pollution Research<span>Air quality</span></p><a class="link" href="https://doi.org/10.1007/s11356-021-16150-0" target="_blank" rel="noopener" aria-label="Read paper: GIS-Based Air Quality Modelling">Read paper <svg class="arr" aria-hidden="true"><use href="#arr"/></svg></a></article>
+      <article class="pub" data-topics="air"><span class="pub__yr">2021</span><h3 class="pub__title"><a href="https://doi.org/10.1080/19475705.2021.1879942" target="_blank" rel="noopener">Spatio-Temporal Modelling of the Influence of Climatic Variables and Seasonal Variation on PM10 in Malaysia</a></h3><p class="pub__venue">Geomatics, Natural Hazards and Risk<span>Air quality · Open access</span></p><a class="link" href="https://doi.org/10.1080/19475705.2021.1879942" target="_blank" rel="noopener" aria-label="Read paper: Spatio-Temporal Modelling of PM10 in Malaysia">Read paper <svg class="arr" aria-hidden="true"><use href="#arr"/></svg></a></article>
+      <article class="pub" data-topics="flood decision"><span class="pub__yr">2020</span><h3 class="pub__title"><a href="https://doi.org/10.1007/s11069-020-04272-6" target="_blank" rel="noopener">Ensemble Fuzzy MCDM for Spatial Assessment of Flood Susceptibility in Ibadan, Nigeria</a></h3><p class="pub__venue">Natural Hazards<span>Flood risk · Decision support</span></p><a class="link" href="https://doi.org/10.1007/s11069-020-04272-6" target="_blank" rel="noopener" aria-label="Read paper: Ensemble Fuzzy MCDM for Flood Susceptibility in Ibadan">Read paper <svg class="arr" aria-hidden="true"><use href="#arr"/></svg></a></article>
+    </div>
+
+    <div class="research__foot">
+      <div class="rv"><h3>Publications</h3><p>The full list, with citation counts, is on <a href="https://scholar.google.com/citations?user=VNYbr6cAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a> and <a href="https://orcid.org/0000-0002-4380-3343" target="_blank" rel="noopener">ORCID</a>.</p></div>
+      <div class="rv" style="--d:1"><h3>Methods in review</h3><p>Current work on area of applicability, ensemble complexity and validation practice for flood models is under journal review.</p></div>
+      <div class="rv" style="--d:2"><h3>Technical notes</h3><p>Short method briefs and articles for practitioners will be published here as they are released.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="section dark-2 contact grain" id="contact" aria-labelledby="contact-title">
+  <canvas class="contact__bg" data-contours aria-hidden="true"></canvas>
+  <div class="wrap contact__grid">
+    <div class="rv">
+      <p class="label">Start a project</p>
+      <h2 class="contact__title" id="contact-title">Have a spatial problem?</h2>
+      <p class="lede">Tell us what you are trying to understand, predict or monitor. We will tell you what data, methods and approach make sense.</p>
+      <div class="channels">
+        <a href="mailto:terrasciq.analytics@gmail.com"><span>Email</span><b>terrasciq.analytics@gmail.com</b><svg aria-hidden="true"><use href="#arr"/></svg></a>
+        <a href="https://wa.me/60102486014" target="_blank" rel="noopener"><span>WhatsApp</span><b>+60 10-248 6014</b><svg aria-hidden="true"><use href="#arr"/></svg></a>
+      </div>
+    </div>
+
+    <form class="form rv" style="--d:1" id="project-form" name="project" method="POST" action="/" enctype="multipart/form-data" data-netlify="true" netlify-honeypot="company-site">
+      <input type="hidden" name="form-name" value="project">
+      <p class="hp"><label>Leave this empty <input name="company-site" tabindex="-1" autocomplete="off"></label></p>
+      <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" type="text" autocomplete="name" required></div>
+      <div class="field"><label for="f-email">Work email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+      <div class="field"><label for="f-org">Organisation</label><input id="f-org" name="organisation" type="text" autocomplete="organization"></div>
+      <div class="field"><label for="f-time">Timeline</label>
+        <select id="f-time" name="timeline">
+          <option value="">Select</option>
+          <option>Within 1 month</option>
+          <option>1 to 3 months</option>
+          <option>3 to 6 months</option>
+          <option>Longer term or ongoing</option>
+          <option>Exploring options</option>
+        </select>
+      </div>
+      <div class="field field--full"><label for="f-msg">What are you trying to solve?</label><textarea id="f-msg" name="problem" rows="4" required placeholder="The decision you need to make, the area it covers, and any data you already hold."></textarea></div>
+      <div class="field field--full">
+        <label for="f-file">Project brief <em>(optional)</em></label>
+        <label class="file" for="f-file">
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M10 13V3M6 7l4-4 4 4M3 13v4h14v-4"/></svg>
+          <span id="f-file-name">Attach a file</span><small>PDF or DOCX · max 8 MB</small>
+          <input id="f-file" name="brief" type="file" accept=".pdf,.doc,.docx">
+        </label>
+      </div>
+      <p class="form__status" id="form-status" role="status" aria-live="polite"></p>
+      <div class="form__foot">
+        <p>No hard sell. We start by understanding the problem.</p>
+        <button class="btn" type="submit" data-magnetic>Start a Project <svg class="arr" aria-hidden="true"><use href="#arr"/></svg></button>
+      </div>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div>
+        <a class="brand" href="#top" aria-label="TerraSciQ Analytics, back to top">
+          <img src="assets/img/logo-icon.webp" width="192" height="192" alt="" loading="lazy">
+          <span class="brand__name">TerraSciQ<span>Analytics</span></span>
+        </a>
+        <p class="footer__tag">Spatial intelligence powered by Earth observation, AI and data science.</p>
+      </div>
+      <nav aria-label="Solutions">
+        <h3>Solutions</h3>
+        <ul>
+          <li><a href="#capabilities">Geospatial Intelligence</a></li>
+          <li><a href="#capabilities">Earth Observation</a></li>
+          <li><a href="#capabilities">Spatial AI</a></li>
+          <li><a href="#capabilities">Climate &amp; Risk</a></li>
+          <li><a href="#capabilities">Environmental Analytics</a></li>
+          <li><a href="#capabilities">Intelligence Platforms</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="Company">
+        <h3>Company</h3>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#work">Work</a></li>
+          <li><a href="#research">Research</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="Connect">
+        <h3>Connect</h3>
+        <ul>
+          <li><a href="https://www.linkedin.com/in/abdulwaheedtella" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="mailto:terrasciq.analytics@gmail.com">Email</a></li>
+          <li><a href="https://wa.me/60102486014" target="_blank" rel="noopener">WhatsApp</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="footer__base">
+      <span>© 2026 TerraSciQ Analytics</span>
+      <span>Founded 2026 · Nigeria · Working internationally</span>
+      <a href="#top">Back to top ↑</a>
+    </div>
+  </div>
+</footer>
+
+<script src="js/terrain.js" defer></script>
+<script src="js/main.js" defer></script>
+</body>
+</html>
