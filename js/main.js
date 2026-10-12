@@ -94,7 +94,6 @@
   /* ---- generated section visuals ---------------------------------------- */
   if (window.TSQ) {
     $$('[data-contours]').forEach(TSQ.contours);
-    if ($('#lc-a')) { TSQ.landcover($('#lc-a'), 0); TSQ.landcover($('#lc-b'), 1); }
     if ($('#aq-canvas')) TSQ.air($('#aq-canvas'));
 
     // Data → Intelligence → Decision: the same grid, progressively resolved
@@ -144,12 +143,36 @@
     });
   });
 
-  /* ---- work: land-cover comparison slider ------------------------------- */
+  /* ---- work: Kuala Lumpur 2000 / 2020 comparison ------------------------ */
   var compare = $('#compare');
   if (compare) {
-    var range = $('input', compare);
+    var range = $('input', compare), imgA = $('#cmp-a'), imgB = $('#cmp-b'), key = $('#kl-key');
     var setP = function () { compare.style.setProperty('--p', range.value + '%'); };
     range.addEventListener('input', setP); setP();
+
+    var scale = function (css, lo, hi) { return '<div class="bar" style="background:' + css + '"></div><div class="ends"><span>' + lo + '</span><span>' + hi + '</span></div>'; };
+    var KL = {
+      landcover: { label: 'Land cover', key: '<p>Five classes mapped at 30 m. Colours match the table below. 21% of the city changed class between 2000 and 2020.</p>' },
+      ndvi: { label: 'Vegetation index (NDVI)', key: scale('linear-gradient(90deg,#8a5a2b,#d9c27a,#9fbf5a,#3f8a45,#12512f)', 'Sparse 0.05', 'Dense 0.37') + '<p>Greenness measured from the red and near-infrared bands. City-wide mean 0.185 in 2000 and 0.191 in 2020.</p>' },
+      ndbi: { label: 'Built-up index (NDBI)', key: scale('linear-gradient(90deg,#0f4c5c,#5fa8a0,#e8e2c8,#e9954a,#b8321f)', 'Low −0.18', 'High 0.07') + '<p>Built surface intensity from the shortwave and near-infrared bands. City-wide mean −0.059 in 2000 and −0.047 in 2020.</p>' },
+      elevation: { label: 'Elevation', single: true, key: scale('linear-gradient(90deg,#1b4d42,#4f7648,#a7925e,#d9c9a3,#f3ecd9)', '14 m', '318 m') + '<p>Terrain model with hillshade. It also provides the relief shading under the other layers.</p>' }
+    };
+    var klBtns = $$('[data-kl]');
+    var pick = function (name) {
+      var L = KL[name], a = 'assets/img/kl-' + name + (L.single ? '' : '-2000') + '.webp', b = 'assets/img/kl-' + name + (L.single ? '' : '-2020') + '.webp';
+      klBtns.forEach(function (o) { o.setAttribute('aria-pressed', String(o.dataset.kl === name)); });
+      key.innerHTML = L.key;
+      compare.classList.add('is-swapping');
+      setTimeout(function () {
+        imgA.src = a; imgB.src = b;
+        imgA.alt = L.label + ' of Kuala Lumpur' + (L.single ? '.' : ' in 2000.'); imgB.alt = L.label + ' of Kuala Lumpur in 2020.';
+        compare.classList.toggle('is-single', !!L.single);
+        var done = function () { compare.classList.remove('is-swapping'); };
+        if (imgA.decode) imgA.decode().then(done, done); else done();
+      }, reduced ? 0 : 200);
+    };
+    klBtns.forEach(function (b) { b.addEventListener('click', function () { pick(b.dataset.kl); }); });
+    key.innerHTML = KL.landcover.key;
   }
 
   /* ---- work: open figures full size ------------------------------------ */

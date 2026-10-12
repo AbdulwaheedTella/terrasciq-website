@@ -454,29 +454,53 @@
     <!-- Case 2 -->
     <article class="case">
       <div class="case__media rv">
-        <div class="compare" id="compare" style="--p:50%">
-          <canvas id="lc-a" aria-hidden="true"></canvas>
-          <div class="compare__top"><canvas id="lc-b" aria-hidden="true"></canvas></div>
-          <span class="compare__yr compare__yr--a">Earlier epoch</span>
-          <span class="compare__yr compare__yr--b">Two decades later</span>
-          <span class="compare__line"></span>
-          <input type="range" min="0" max="100" value="50" aria-label="Drag to compare land cover between the earlier and later epoch">
+        <div class="kl">
+          <div class="compare" id="compare" style="--p:50%">
+            <img id="cmp-a" src="assets/img/kl-landcover-2000.webp" width="538" height="780" loading="lazy" decoding="async" alt="Land cover of Kuala Lumpur in 2000, classified from 30 metre satellite imagery.">
+            <div class="compare__top"><img id="cmp-b" src="assets/img/kl-landcover-2020.webp" width="538" height="780" loading="lazy" decoding="async" alt="Land cover of Kuala Lumpur in 2020, classified from 30 metre satellite imagery."></div>
+            <span class="compare__yr compare__yr--a">2000</span>
+            <span class="compare__yr compare__yr--b">2020</span>
+            <span class="compare__line"></span>
+            <input type="range" min="0" max="100" value="50" aria-label="Drag to compare Kuala Lumpur in 2000 and 2020">
+          </div>
+          <div class="kl__side">
+            <div class="kl__layers" role="group" aria-label="Map layer">
+              <button data-kl="landcover" aria-pressed="true">Land cover</button>
+              <button data-kl="ndvi" aria-pressed="false">Vegetation index</button>
+              <button data-kl="ndbi" aria-pressed="false">Built-up index</button>
+              <button data-kl="elevation" aria-pressed="false">Elevation</button>
+            </div>
+            <div class="kl__key" id="kl-key" aria-live="polite"></div>
+            <table class="kl__table">
+              <caption>Land cover, km²</caption>
+              <thead><tr><th scope="col">Class</th><th scope="col">2000</th><th scope="col">2020</th><th scope="col">Change</th></tr></thead>
+              <tbody>
+                <tr><th scope="row"><i style="background:#d9623a"></i>Built-up</th><td>169.3</td><td>176.0</td><td class="up">+4.0%</td></tr>
+                <tr><th scope="row"><i style="background:#4f8a4c"></i>Vegetation</th><td>40.7</td><td>30.4</td><td class="down">−25.3%</td></tr>
+                <tr><th scope="row"><i style="background:#c2b565"></i>Cropland</th><td>28.2</td><td>31.7</td><td class="up">+12.6%</td></tr>
+                <tr><th scope="row"><i style="background:#2f7fb8"></i>Water</th><td>3.3</td><td>3.2</td><td>−2.2%</td></tr>
+                <tr><th scope="row"><i style="background:#9a8f86"></i>Bare land</th><td>0.2</td><td>0.3</td><td>+0.1 km²</td></tr>
+              </tbody>
+            </table>
+          </div>
         </div>
-        <div class="plate__bar">
-          <ul class="legend"><li><i style="background:#d9623a"></i>Built-up</li><li><i style="background:#4f8a4c"></i>Vegetation</li><li><i style="background:#b9ad62"></i>Cropland</li><li><i style="background:#2f7fb8"></i>Water</li></ul>
-          <span>Illustrative rendering · drag to compare</span>
-        </div>
+        <p class="plate__bar"><span>Kuala Lumpur · 30 m rasters · 241.6 km² analysed</span><span>Drag the handle to compare</span></p>
       </div>
       <div class="case__text rv" style="--d:1">
-        <p class="case__kicker"><span>Urban change / Earth observation</span><span>Multi-temporal satellite archive</span></p>
+        <p class="case__kicker"><span>Urban change / Earth observation</span><span>Kuala Lumpur, 2000 to 2020</span></p>
         <h3 class="case__title">Twenty years of urban expansion, revealed from space.</h3>
         <dl class="case__facts">
           <div><dt>Challenge</dt><dd>Cities change faster than hazard maps are updated. Showing how growth has shifted flood risk requires a consistent land-cover record across two decades.</dd></div>
-          <div><dt>Approach</dt><dd>Multi-temporal imagery was classified into land-cover maps for each epoch in Google Earth Engine, change was quantified between them, and explainable machine learning linked that change statistically to shifting flood risk.</dd></div>
-          <div><dt>Technology</dt><dd>Google Earth Engine, Landsat archive, land-cover classification, change detection, explainable ML.</dd></div>
-          <div><dt>Outcome</dt><dd><strong>A repeatable workflow from raw archive to quantified change and its effect on risk</strong>, suitable for periodic updates as new imagery arrives.</dd></div>
+          <div><dt>Approach</dt><dd>Satellite imagery from 2000 and 2020 was classified into land-cover maps at 30 m resolution, change was quantified between them, and explainable machine learning linked that change statistically to shifting flood risk.</dd></div>
+          <div><dt>Technology</dt><dd>Google Earth Engine, Landsat archive, land-cover classification, NDVI and NDBI indices, change detection, explainable ML.</dd></div>
+          <div><dt>Outcome</dt><dd><strong>A measured account of where the city changed.</strong> An already dense city kept filling in: a quarter of its remaining vegetation was lost, most of it to built-up land.</dd></div>
         </dl>
-        <p class="case__src">Published in <a href="https://doi.org/10.1007/s41748-025-00878-7" target="_blank" rel="noopener">Earth Systems and Environment (2025)</a>. The visual is an illustrative rendering; published maps are in the paper.</p>
+        <div class="case__metrics">
+          <div><b data-count="25" data-suffix="%">25%</b><span>Of vegetation cover lost in twenty years</span></div>
+          <div><b data-count="22.6" data-dec="1" data-suffix=" km²">22.6 km²</b><span>Converted to built-up land</span></div>
+          <div><b data-count="21" data-suffix="%">21%</b><span>Of the city changed land-cover class</span></div>
+        </div>
+        <p class="case__src">Published in <a href="https://doi.org/10.1007/s41748-025-00878-7" target="_blank" rel="noopener">Earth Systems and Environment (2025)</a>. Maps and figures here are computed from the study's 30 m rasters.</p>
       </div>
     </article>
 
@@ -641,7 +665,7 @@
     </ol>
 
     <div class="console rv" id="console" aria-label="Concept decision-support interface">
-      <div class="console__top"><b>Flood risk console · Klang Valley</b><span>Model v2.3 · validated · updated monthly</span></div>
+      <div class="console__top"><b>Flood risk console · Kuala Lumpur</b><span>Model v2.3 · validated · updated monthly</span></div>
       <div class="console__side" aria-hidden="true">
         <div><h4>Layers</h4><ul>
           <li class="on"><i></i>Susceptibility</li>
