@@ -455,19 +455,24 @@
     <article class="case">
       <div class="case__media rv">
         <div class="kl">
-          <div class="compare" id="compare" style="--p:50%">
-            <img id="cmp-a" src="assets/img/kl-landcover-2000.webp" width="538" height="780" loading="lazy" decoding="async" alt="Land cover of Kuala Lumpur in 2000, classified from 30 metre satellite imagery.">
-            <div class="compare__top"><img id="cmp-b" src="assets/img/kl-landcover-2020.webp" width="538" height="780" loading="lazy" decoding="async" alt="Land cover of Kuala Lumpur in 2020, classified from 30 metre satellite imagery."></div>
-            <span class="compare__yr compare__yr--a">2000</span>
-            <span class="compare__yr compare__yr--b">2020</span>
-            <span class="compare__line"></span>
-            <input type="range" min="0" max="100" value="50" aria-label="Drag to compare Kuala Lumpur in 2000 and 2020">
+          <div class="kl__map">
+            <div class="kl__stage" id="kl-stage" style="--t:0">
+              <img id="kl-a" src="assets/img/kl-landcover-2000.webp" width="538" height="780" loading="lazy" decoding="async" alt="Land cover of Kuala Lumpur in 2000, classified from 30 metre satellite imagery.">
+              <img id="kl-b" src="assets/img/kl-landcover-2020.webp" width="538" height="780" loading="lazy" decoding="async" alt="Land cover of Kuala Lumpur in 2020, classified from 30 metre satellite imagery.">
+              <span class="kl__year" id="kl-year" aria-live="polite">2000</span>
+            </div>
+            <div class="kl__time" id="kl-time">
+              <button class="kl__play" id="kl-play" type="button" aria-label="Play the change from 2000 to 2020"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg></button>
+              <button class="kl__tick" type="button" data-kl-year="0">2000</button>
+              <input type="range" min="0" max="100" value="0" aria-label="Move from 2000 to 2020">
+              <button class="kl__tick" type="button" data-kl-year="100">2020</button>
+            </div>
           </div>
           <div class="kl__side">
             <div class="kl__layers" role="group" aria-label="Map layer">
               <button data-kl="landcover" aria-pressed="true">Land cover</button>
-              <button data-kl="ndvi" aria-pressed="false">Vegetation index</button>
-              <button data-kl="ndbi" aria-pressed="false">Built-up index</button>
+              <button data-kl="change" aria-pressed="false">What changed</button>
+              <button data-kl="index" aria-pressed="false">Green vs built index</button>
               <button data-kl="elevation" aria-pressed="false">Elevation</button>
             </div>
             <div class="kl__key" id="kl-key" aria-live="polite"></div>
@@ -484,7 +489,7 @@
             </table>
           </div>
         </div>
-        <p class="plate__bar"><span>Kuala Lumpur · 30 m rasters · 241.6 km² analysed</span><span>Drag the handle to compare</span></p>
+        <p class="plate__bar"><span>Kuala Lumpur · 30 m rasters · 241.6 km² analysed</span><span>Whole city shown · move the slider from 2000 to 2020</span></p>
       </div>
       <div class="case__text rv" style="--d:1">
         <p class="case__kicker"><span>Urban change / Earth observation</span><span>Kuala Lumpur, 2000 to 2020</span></p>
@@ -492,7 +497,7 @@
         <dl class="case__facts">
           <div><dt>Challenge</dt><dd>Cities change faster than hazard maps are updated. Showing how growth has shifted flood risk requires a consistent land-cover record across two decades.</dd></div>
           <div><dt>Approach</dt><dd>Satellite imagery from 2000 and 2020 was classified into land-cover maps at 30 m resolution, change was quantified between them, and explainable machine learning linked that change statistically to shifting flood risk.</dd></div>
-          <div><dt>Technology</dt><dd>Google Earth Engine, Landsat archive, land-cover classification, NDVI and NDBI indices, change detection, explainable ML.</dd></div>
+          <div><dt>Technology</dt><dd>Google Earth Engine, Landsat archive, land-cover classification, combined NDBI and NDVI index, change detection, explainable ML.</dd></div>
           <div><dt>Outcome</dt><dd><strong>A measured account of where the city changed.</strong> An already dense city kept filling in: a quarter of its remaining vegetation was lost, most of it to built-up land.</dd></div>
         </dl>
         <div class="case__metrics">

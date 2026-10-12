@@ -143,36 +143,71 @@
     });
   });
 
-  /* ---- work: Kuala Lumpur 2000 / 2020 comparison ------------------------ */
-  var compare = $('#compare');
-  if (compare) {
-    var range = $('input', compare), imgA = $('#cmp-a'), imgB = $('#cmp-b'), key = $('#kl-key');
-    var setP = function () { compare.style.setProperty('--p', range.value + '%'); };
-    range.addEventListener('input', setP); setP();
+  /* ---- work: Kuala Lumpur, 2000 to 2020 -------------------------------- */
+  // The whole city stays visible. The slider cross-fades the 2000 map into
+  // the 2020 map, so moving right always means moving forward in time.
+  var stage = $('#kl-stage');
+  if (stage) {
+    var time = $('#kl-time'), range = $('input', time), imgA = $('#kl-a'), imgB = $('#kl-b');
+    var key = $('#kl-key'), yearEl = $('#kl-year'), ticks = $$('[data-kl-year]'), raf = null;
+
+    var setT = function (v) {
+      range.value = v;
+      stage.style.setProperty('--t', (v / 100).toFixed(3));
+      range.style.setProperty('--fill', v + '%');
+      yearEl.textContent = v < 3 ? '2000' : v > 97 ? '2020' : '2000 → 2020';
+      ticks.forEach(function (t) { t.classList.toggle('is-on', (+t.dataset.klYear === 0 && v < 3) || (+t.dataset.klYear === 100 && v > 97)); });
+    };
+    var stopPlay = function () { if (raf) cancelAnimationFrame(raf); raf = null; };
+    var play = function () {
+      stopPlay();
+      if (reduced) { setT(+range.value > 50 ? 0 : 100); return; }
+      var t0 = performance.now(), dur = 2600;
+      (function step(now) {
+        var p = Math.min(1, (now - t0) / dur);
+        setT(Math.round((p < 0.5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2) * 100));
+        raf = p < 1 ? requestAnimationFrame(step) : null;
+      })(t0);
+    };
+    range.addEventListener('input', function () { stopPlay(); setT(+range.value); });
+    $('#kl-play').addEventListener('click', play);
+    ticks.forEach(function (t) { t.addEventListener('click', function () { stopPlay(); setT(+t.dataset.klYear); }); });
 
     var scale = function (css, lo, hi) { return '<div class="bar" style="background:' + css + '"></div><div class="ends"><span>' + lo + '</span><span>' + hi + '</span></div>'; };
+    var rows = function (items) { return '<ul>' + items.map(function (r) { return '<li><i style="background:' + r[0] + '"></i><span>' + r[1] + '</span><b>' + r[2] + '</b></li>'; }).join('') + '</ul>'; };
     var KL = {
-      landcover: { label: 'Land cover', key: '<p>Five classes mapped at 30 m. Colours match the table below. 21% of the city changed class between 2000 and 2020.</p>' },
-      ndvi: { label: 'Vegetation index (NDVI)', key: scale('linear-gradient(90deg,#8a5a2b,#d9c27a,#9fbf5a,#3f8a45,#12512f)', 'Sparse 0.05', 'Dense 0.37') + '<p>Greenness measured from the red and near-infrared bands. City-wide mean 0.185 in 2000 and 0.191 in 2020.</p>' },
-      ndbi: { label: 'Built-up index (NDBI)', key: scale('linear-gradient(90deg,#0f4c5c,#5fa8a0,#e8e2c8,#e9954a,#b8321f)', 'Low −0.18', 'High 0.07') + '<p>Built surface intensity from the shortwave and near-infrared bands. City-wide mean −0.059 in 2000 and −0.047 in 2020.</p>' },
+      landcover: { label: 'Land cover', key: '<p>Five classes mapped at 30 m; colours match the table below. Move the slider to watch green patches give way to built-up land.</p>' },
+      change: { label: 'Land-cover change, 2000 to 2020,', single: true, key: rows([['#e23b2e', 'Vegetation to built-up', '12.7 km²'], ['#f29a3f', 'Cropland to built-up', '9.6 km²'], ['#4fcbee', 'Built-up to green cover', '15.6 km²'], ['#b9ad62', 'Vegetation and cropland swapped', '10.8 km²'], ['#2a3531', 'No change', '191.1 km²']]) },
+      index: { label: 'Built-up versus vegetation index', key: scale('linear-gradient(90deg,#12512f,#4f9a4c,#e9e4c9,#e9954a,#b8321f)', 'Vegetated', 'Built surface') + '<p>NDBI minus NDVI: one index that separates built surfaces from vegetation without a classification step.</p>' },
       elevation: { label: 'Elevation', single: true, key: scale('linear-gradient(90deg,#1b4d42,#4f7648,#a7925e,#d9c9a3,#f3ecd9)', '14 m', '318 m') + '<p>Terrain model with hillshade. It also provides the relief shading under the other layers.</p>' }
     };
     var klBtns = $$('[data-kl]');
     var pick = function (name) {
-      var L = KL[name], a = 'assets/img/kl-' + name + (L.single ? '' : '-2000') + '.webp', b = 'assets/img/kl-' + name + (L.single ? '' : '-2020') + '.webp';
+      var L = KL[name], base = 'assets/img/kl-' + name;
+      stopPlay();
       klBtns.forEach(function (o) { o.setAttribute('aria-pressed', String(o.dataset.kl === name)); });
       key.innerHTML = L.key;
-      compare.classList.add('is-swapping');
+      stage.classList.add('is-swapping');
       setTimeout(function () {
-        imgA.src = a; imgB.src = b;
-        imgA.alt = L.label + ' of Kuala Lumpur' + (L.single ? '.' : ' in 2000.'); imgB.alt = L.label + ' of Kuala Lumpur in 2020.';
-        compare.classList.toggle('is-single', !!L.single);
-        var done = function () { compare.classList.remove('is-swapping'); };
-        if (imgA.decode) imgA.decode().then(done, done); else done();
+        imgA.src = base + (L.single ? '' : '-2000') + '.webp';
+        imgA.alt = L.label + ' of Kuala Lumpur' + (L.single ? '.' : ' in 2000.');
+        if (!L.single) { imgB.src = base + '-2020.webp'; imgB.alt = L.label + ' of Kuala Lumpur in 2020.'; }
+        stage.classList.toggle('is-single', !!L.single);
+        time.classList.toggle('is-off', !!L.single);
+        yearEl.hidden = !!L.single;
+        var done = function () { stage.classList.remove('is-swapping'); };
+        var waits = [imgA].concat(L.single ? [] : [imgB]).map(function (im) { return im.decode ? im.decode().catch(function () {}) : null; });
+        Promise.all(waits).then(done, done);
       }, reduced ? 0 : 200);
     };
     klBtns.forEach(function (b) { b.addEventListener('click', function () { pick(b.dataset.kl); }); });
-    key.innerHTML = KL.landcover.key;
+    key.innerHTML = KL.landcover.key; setT(0);
+
+    // play once when the map first scrolls into view
+    if ('IntersectionObserver' in window && !reduced) {
+      var once = new IntersectionObserver(function (e) { if (e[0].isIntersecting) { once.disconnect(); setTimeout(play, 500); } }, { threshold: 0.4 });
+      once.observe(stage);
+    }
   }
 
   /* ---- work: open figures full size ------------------------------------ */
