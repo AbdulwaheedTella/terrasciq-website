@@ -39,7 +39,7 @@ The contact form uses Netlify Forms (`data-netlify="true"`, form name `project`,
 ## Before going public
 
 - **Search indexing is switched off.** While the site is being built, `index.html` carries `<meta name="robots" content="noindex, nofollow">` and `robots.txt` disallows all crawlers. Remove the meta tag and restore `robots.txt` (the launch version is in its comments) when the site is ready to be found.
-- **Domain.** Canonical URL, Open Graph tags, JSON-LD, `robots.txt` and `sitemap.xml` assume `https://www.terrasciq.com/`. Search and replace if the domain differs.
+- **Domain.** Canonical URL, Open Graph tags, JSON-LD, `robots.txt` and `sitemap.xml` point to `https://terrasciqanalytics.netlify.app/`. Search and replace when a custom domain is added.
 - **LinkedIn.** The LinkedIn links point to the founder's profile. Replace with the company page once it exists.
 - **Citation figures.** The About numbers (16 journal articles, 1,000+ citations, 25+ peer reviews) are as of September 2026. Update them periodically.
 - **Case studies.** The work shown is published research by the founder, labelled as such. Add client projects only with written permission.

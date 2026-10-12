@@ -1,6 +1,6 @@
 # PRE-LAUNCH: blocks all crawlers. At launch, replace with:
 #   User-agent: *
 #   Allow: /
-#   Sitemap: https://www.terrasciq.com/sitemap.xml
+#   Sitemap: https://terrasciqanalytics.netlify.app/sitemap.xml
 User-agent: *
 Disallow: /
