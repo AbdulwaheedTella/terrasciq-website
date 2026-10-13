@@ -416,9 +416,9 @@
 <section class="section dark" id="work" aria-labelledby="work-title">
   <div class="wrap">
     <div class="head">
-      <p class="label">Selected work</p>
+      <p class="label">Case studies</p>
       <h2 class="h2 rv" id="work-title">Real problems. Spatial intelligence. Measurable outputs.</h2>
-      <p class="lede rv" style="--d:1">The methods we deliver were developed and tested in published, peer-reviewed studies led or co-authored by our founder. These are the outputs, shown as they were published.</p>
+      <p class="lede rv" style="--d:1">Projects from the TerraSciQ team, each one independently peer-reviewed before publication. They show what a client receives: the map, the numbers behind it, and the limits of both.</p>
     </div>
 
     <!-- Case 1 -->
@@ -456,27 +456,23 @@
       <div class="case__media rv">
         <div class="kl">
           <div class="kl__map">
-            <div class="kl__stage" id="kl-stage" style="--t:0">
-              <img id="kl-a" src="assets/img/kl-landcover-2000.webp" width="538" height="780" loading="lazy" decoding="async" alt="Land cover of Kuala Lumpur in 2000, classified from 30 metre satellite imagery.">
-              <img id="kl-b" src="assets/img/kl-landcover-2020.webp" width="538" height="780" loading="lazy" decoding="async" alt="Land cover of Kuala Lumpur in 2020, classified from 30 metre satellite imagery.">
-              <span class="kl__year" id="kl-year" aria-live="polite">2000</span>
+            <div class="wipe" id="kl-wipe" style="--p:50%">
+              <img id="kl-a" src="assets/img/kl-landcover-2000.webp" width="538" height="780" loading="lazy" decoding="async" alt="Land cover of Kuala Lumpur in 2000.">
+              <div class="wipe__top"><img id="kl-b" src="assets/img/kl-landcover-2020.webp" width="538" height="780" loading="lazy" decoding="async" alt="Land cover of Kuala Lumpur in 2020."></div>
+              <span class="wipe__line" aria-hidden="true"><b>2020</b><i></i><b>2000</b></span>
+              <input type="range" min="0" max="100" value="50" aria-label="Drag right to reveal 2020, left to return to 2000">
             </div>
-            <div class="kl__time" id="kl-time">
-              <button class="kl__play" id="kl-play" type="button" aria-label="Play the change from 2000 to 2020"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg></button>
-              <button class="kl__tick" type="button" data-kl-year="0">2000</button>
-              <input type="range" min="0" max="100" value="0" aria-label="Move from 2000 to 2020">
-              <button class="kl__tick" type="button" data-kl-year="100">2020</button>
-            </div>
+            <p class="kl__hint" id="kl-hint"><span>◀ 2000</span><span>Drag to compare</span><span>2020 ▶</span></p>
           </div>
           <div class="kl__side">
             <div class="kl__layers" role="group" aria-label="Map layer">
               <button data-kl="landcover" aria-pressed="true">Land cover</button>
-              <button data-kl="change" aria-pressed="false">What changed</button>
+              <button data-kl="flood" aria-pressed="false">Flood susceptibility</button>
               <button data-kl="index" aria-pressed="false">Green vs built index</button>
-              <button data-kl="elevation" aria-pressed="false">Elevation</button>
+              <button data-kl="change" aria-pressed="false">What changed</button>
             </div>
             <div class="kl__key" id="kl-key" aria-live="polite"></div>
-            <table class="kl__table">
+            <table class="kl__table" id="kl-table-landcover">
               <caption>Land cover, km²</caption>
               <thead><tr><th scope="col">Class</th><th scope="col">2000</th><th scope="col">2020</th><th scope="col">Change</th></tr></thead>
               <tbody>
@@ -487,25 +483,36 @@
                 <tr><th scope="row"><i style="background:#9a8f86"></i>Bare land</th><td>0.2</td><td>0.3</td><td>+0.1 km²</td></tr>
               </tbody>
             </table>
+            <table class="kl__table" id="kl-table-flood" hidden>
+              <caption>Flood susceptibility, km²</caption>
+              <thead><tr><th scope="col">Class</th><th scope="col">2000</th><th scope="col">2020</th><th scope="col">Change</th></tr></thead>
+              <tbody>
+                <tr><th scope="row"><i style="background:#c92a1e"></i>Very high</th><td>91.5</td><td>98.8</td><td class="up">+8.0%</td></tr>
+                <tr><th scope="row"><i style="background:#f08a3c"></i>High</th><td>22.1</td><td>16.6</td><td>−24.9%</td></tr>
+                <tr><th scope="row"><i style="background:#f0d95a"></i>Moderate</th><td>10.7</td><td>12.2</td><td class="up">+14.0%</td></tr>
+                <tr><th scope="row"><i style="background:#45b6d6"></i>Low</th><td>29.8</td><td>30.5</td><td>+2.3%</td></tr>
+                <tr><th scope="row"><i style="background:#1c6f8f"></i>Very low</th><td>85.9</td><td>83.5</td><td>−2.8%</td></tr>
+              </tbody>
+            </table>
           </div>
         </div>
-        <p class="plate__bar"><span>Kuala Lumpur · 30 m rasters · 241.6 km² analysed</span><span>Whole city shown · move the slider from 2000 to 2020</span></p>
+        <p class="plate__bar"><span>Kuala Lumpur · 30 m rasters · 241.6 km² analysed</span><span>Relief shading from the elevation model</span></p>
       </div>
       <div class="case__text rv" style="--d:1">
-        <p class="case__kicker"><span>Urban change / Earth observation</span><span>Kuala Lumpur, 2000 to 2020</span></p>
+        <p class="case__kicker"><span>Urban change / Flood risk</span><span>Kuala Lumpur, 2000 to 2020</span></p>
         <h3 class="case__title">Twenty years of urban expansion, revealed from space.</h3>
         <dl class="case__facts">
           <div><dt>Challenge</dt><dd>Cities change faster than hazard maps are updated. Showing how growth has shifted flood risk requires a consistent land-cover record across two decades.</dd></div>
-          <div><dt>Approach</dt><dd>Satellite imagery from 2000 and 2020 was classified into land-cover maps at 30 m resolution, change was quantified between them, and explainable machine learning linked that change statistically to shifting flood risk.</dd></div>
-          <div><dt>Technology</dt><dd>Google Earth Engine, Landsat archive, land-cover classification, combined NDBI and NDVI index, change detection, explainable ML.</dd></div>
-          <div><dt>Outcome</dt><dd><strong>A measured account of where the city changed.</strong> An already dense city kept filling in: a quarter of its remaining vegetation was lost, most of it to built-up land.</dd></div>
+          <div><dt>Approach</dt><dd>Satellite imagery from 2000 and 2020 was classified into land-cover maps at 30 m resolution and the change between them quantified. A flood susceptibility model was then run for both years, so the shift in risk can be read against the shift in land cover.</dd></div>
+          <div><dt>Technology</dt><dd>Google Earth Engine, Landsat archive, land-cover classification, NDBI and NDVI indices, change detection, random forest, explainable ML.</dd></div>
+          <div><dt>Outcome</dt><dd><strong>A measured account of where the city changed, and what it did to risk.</strong> An already dense city kept filling in: a quarter of its vegetation was lost, and the area rated very high for flood susceptibility grew from 91.5 to 98.8 km².</dd></div>
         </dl>
         <div class="case__metrics">
           <div><b data-count="25" data-suffix="%">25%</b><span>Of vegetation cover lost in twenty years</span></div>
           <div><b data-count="22.6" data-dec="1" data-suffix=" km²">22.6 km²</b><span>Converted to built-up land</span></div>
-          <div><b data-count="21" data-suffix="%">21%</b><span>Of the city changed land-cover class</span></div>
+          <div><b data-count="8" data-suffix="%">8%</b><span>More land in the very high flood class</span></div>
         </div>
-        <p class="case__src">Published in <a href="https://doi.org/10.1007/s41748-025-00878-7" target="_blank" rel="noopener">Earth Systems and Environment (2025)</a>. Maps and figures here are computed from the study's 30 m rasters.</p>
+        <p class="case__src">Published in <a href="https://doi.org/10.1007/s41748-025-00878-7" target="_blank" rel="noopener">Earth Systems and Environment (2025)</a>. Maps and figures here are computed from the study's 30 m rasters; flood classes are equal 0.2 probability bands.</p>
       </div>
     </article>
 
@@ -535,30 +542,9 @@
       </div>
     </article>
 
-    <!-- Case 4 -->
-    <article class="case">
-      <div class="case__media rv">
-        <div class="plate plate--dark"><canvas id="aq-canvas" style="aspect-ratio:16/10.4" role="img" aria-label="Illustrative predicted air-quality surface with monitoring station locations."></canvas></div>
-        <div class="plate__bar">
-          <ul class="legend"><li><i style="background:linear-gradient(90deg,#12322e,#8db548,#ee6a2e);width:46px"></i>Predicted PM10, low to high</li><li><i style="border:1px solid #fff;border-radius:50%"></i>Monitoring station</li></ul>
-          <span>Illustrative rendering</span>
-        </div>
-      </div>
-      <div class="case__text rv" style="--d:1">
-        <p class="case__kicker"><span>Environmental intelligence</span><span>Selangor, Malaysia</span></p>
-        <h3 class="case__title">Turning sparse air-quality observations into continuous spatial intelligence.</h3>
-        <dl class="case__facts">
-          <div><dt>Challenge</dt><dd>Monitoring stations are few and far apart, and pollution shifts with weather and season. Agencies need to know what is happening between stations, and what drives it.</dd></div>
-          <div><dt>Approach</dt><dd>Station records were combined with climatic and land variables. Machine-learning, geostatistical and regression models were compared for predicting PM10 across the state and locating persistent hotspots.</dd></div>
-          <div><dt>Technology</dt><dd>Random forest, XGBoost, K-nearest neighbours, support vector regression, kriging, IDW, GIS.</dd></div>
-          <div><dt>Outcome</dt><dd><strong>State-wide PM10 prediction and hotspot maps</strong>, with the influence of climate and season quantified, across four peer-reviewed studies.</dd></div>
-        </dl>
-        <p class="case__src">Published in <a href="https://doi.org/10.1007/s11356-021-16150-0" target="_blank" rel="noopener">Environmental Science and Pollution Research (2021)</a> and <a href="https://doi.org/10.1016/j.apr.2021.101202" target="_blank" rel="noopener">Atmospheric Pollution Research (2021)</a>. The visual is an illustrative rendering.</p>
-      </div>
-    </article>
-
     <div class="more-work" id="more-work">
       <div class="more-work__panel" id="more-work-panel"><div>
+        <article class="mw"><span class="mw__n">04</span><h3>Air quality between the monitoring stations</h3><p>Machine-learning and geostatistical prediction of PM10 across Selangor from sparse station records, with hotspots and climatic drivers.</p><p class="mw__meta">Environ. Sci. Pollut. Res. · 2021</p></article>
         <article class="mw"><span class="mw__n">05</span><h3>From hazard to exposure: who and what is in the flood zone</h3><p>Deep-learning and ensemble susceptibility surfaces linked to buildings, land use and population, explained with SHAP and LIME.</p><p class="mw__meta">Sustainable Development · 2026</p></article>
         <article class="mw"><span class="mw__n">06</span><h3>Landslide proneness along a highway corridor</h3><p>GIS and multi-criteria analysis ranking slope-failure risk along the Taiping to Ipoh highway segment in Malaysia.</p><p class="mw__meta">Sustainability · 2022</p></article>
         <article class="mw"><span class="mw__n">07</span><h3>Land-use dynamics in conflict-affected regions</h3><p>Earth observation tracking how land use shifted across armed-conflict hotspots in north-east Nigeria.</p><p class="mw__meta">Land Use Policy · 2025</p></article>
@@ -724,41 +710,94 @@
   </div>
 </section>
 
-<!-- ============ ABOUT ============ -->
-<section class="section light" id="about" aria-labelledby="about-title">
+<!-- ============ HOW WE WORK ============ -->
+<section class="section light" id="approach" aria-labelledby="eng-title">
   <div class="wrap">
     <div class="head">
-      <p class="label">About</p>
+      <p class="label">How we work</p>
+      <h2 class="h2 rv" id="eng-title">A defined process, from first call to handover.</h2>
+      <p class="lede rv" style="--d:1">Every engagement follows the same four stages. You know what is being delivered, how it will be tested, and what happens if the data cannot support the question.</p>
+    </div>
+
+    <ol class="stages">
+      <li class="rv"><span>Stage 01</span><h3>Frame the decision</h3><p>We agree the decision, its users, the area, the timeline and what success looks like, and check that analysis can realistically change the outcome.</p></li>
+      <li class="rv" style="--d:1"><span>Stage 02</span><h3>Assemble and audit the data</h3><p>We identify sources, assess quality and gaps, document limitations, and tell you early if the evidence will not support the question.</p></li>
+      <li class="rv" style="--d:2"><span>Stage 03</span><h3>Model and validate</h3><p>We build and test the approach, then report performance, transferability, uncertainty and the conditions under which it may fail.</p></li>
+      <li class="rv" style="--d:3"><span>Stage 04</span><h3>Hand over and support</h3><p>You receive the agreed outputs, code where applicable, documentation and a walkthrough, with ongoing support if you need it.</p></li>
+    </ol>
+
+    <div class="engage">
+      <div class="engage__intro rv">
+        <h3 class="h3">Ways to engage</h3>
+        <p>Scope, schedule, deliverables and commercial terms are set out in a written proposal before any work starts.</p>
+        <a class="link" href="#contact">Discuss your project <svg class="arr" aria-hidden="true"><use href="#arr"/></svg></a>
+      </div>
+      <ul class="engage__list">
+        <li class="rv"><b>Feasibility assessment</b><span>A short review of your question and data, ending in a clear recommendation on whether and how to proceed.</span></li>
+        <li class="rv"><b>Proof of concept</b><span>A working model or map for one area, to test value before committing to a full programme.</span></li>
+        <li class="rv"><b>Defined project</b><span>A fixed-scope analytical or modelling project with agreed outputs and acceptance criteria.</span></li>
+        <li class="rv"><b>End-to-end delivery</b><span>From data preparation through modelling to a dashboard or platform your team operates.</span></li>
+        <li class="rv"><b>Training and capacity building</b><span>Practical workshops that leave your analysts able to run and extend the work.</span></li>
+        <li class="rv"><b>Support and maintenance</b><span>Post-delivery updates as new imagery and data arrive, and technical support for your users.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section class="section dark-2" id="about" aria-labelledby="about-title">
+  <div class="wrap">
+    <div class="head">
+      <p class="label">About TerraSciQ</p>
       <h2 class="h2 rv" id="about-title">Research-grade thinking. Built for real-world decisions.</h2>
     </div>
     <div class="about">
       <div class="about__copy rv">
-        <p class="lede">TerraSciQ Analytics operates where scientific research meets practical implementation.</p>
+        <p class="lede">TerraSciQ Analytics is a geospatial and environmental intelligence company working where scientific research meets practical implementation.</p>
         <div class="body">
-          <p>We use rigorous spatial science, Earth observation and AI methods, and we design every output around the decision a client actually has to make. That means stating assumptions, reporting uncertainty in plain language, and saying clearly what the available data can and cannot support.</p>
-          <p>Engagements range from a short feasibility assessment to end-to-end delivery, from data preparation through to a working platform, with documentation and handover so your team is never dependent on ours.</p>
+          <p>We combine Earth observation, spatial data science and machine learning to turn complex data into evidence organisations can act on. Our methods are rigorous enough to pass peer review, and our outputs are designed around the decision a client actually has to make.</p>
+          <p>We state assumptions, report uncertainty in plain language, and say clearly what the available data can and cannot support. A model is not built simply because it can be built.</p>
         </div>
         <p class="facts"><span><b>Founded</b> 2026</span><span><b>Base</b> Nigeria</span><span><b>Delivery</b> International clients</span></p>
       </div>
-      <aside class="lead rv" style="--d:1" aria-label="Leadership">
-        <p class="lead__role">Founder and principal</p>
-        <h3 class="lead__name">Abdulwaheed Tella</h3>
-        <p class="lead__post">Gs., Ts. · GeoAI and environmental modelling</p>
-        <p class="lead__bio">Works on explainable, transferable machine learning for flood risk, urban heat and environmental monitoring, and on getting model outputs into a form planners and engineers can use.</p>
-        <ul class="cred">
-          <li><span>Registered</span><span>Professional Technologist (MBOT) and Geospatialist (IGRSM), Malaysia</span></li>
-          <li><span>Research</span><span>Doctoral research in GeoAI and flood modelling, Monash University Malaysia</span></li>
-          <li><span>Collaboration</span><span>Visiting research associate, Curtin University, on model reliability</span></li>
-          <li><span>Funding</span><span>APNIC Foundation research fellowship, principal investigator</span></li>
-          <li><span>Recognition</span><span>Best Student Paper Award, IEEE Geoscience and Remote Sensing Symposium 2024</span></li>
+      <div class="commit rv" style="--d:1">
+        <h3>Our commitments to clients</h3>
+        <ul>
+          <li><b>Agreed scope</b><span>Assumptions and acceptance criteria are confirmed before work begins.</span></li>
+          <li><b>Independent testing</b><span>Models are evaluated on data kept separate from training, with spatial structure respected.</span></li>
+          <li><b>Honest uncertainty</b><span>Estimates are never presented as observations, nor predictions as certainties.</span></li>
+          <li><b>Reproducible delivery</b><span>Data and code are versioned, and every processing decision is recorded.</span></li>
+          <li><b>Confidentiality</b><span>Your data stays yours. Nothing is published without written permission.</span></li>
         </ul>
-        <a class="link" href="https://www.linkedin.com/in/abdulwaheedtella" target="_blank" rel="noopener">LinkedIn profile <svg class="arr" aria-hidden="true"><use href="#arr"/></svg></a>
-      </aside>
+      </div>
     </div>
+
     <div class="stats" id="stats">
-      <div class="stat rv"><b data-count="16">16</b><span>Peer-reviewed journal articles behind our methods, most in first-quartile journals.</span></div>
-      <div class="stat rv" style="--d:1"><b data-count="1000" data-suffix="+" data-sep="1">1,000+</b><span>Citations of that work by other researchers (Google Scholar, September 2026).</span></div>
-      <div class="stat rv" style="--d:2"><b data-count="25" data-suffix="+">25+</b><span>Manuscripts peer-reviewed for indexed journals. We know what scrutiny looks like.</span></div>
+      <div class="stat rv"><b data-count="16">16</b><span>Peer-reviewed studies behind the methods we deliver, most in first-quartile journals.</span></div>
+      <div class="stat rv" style="--d:1"><b data-count="1000" data-suffix="+" data-sep="1">1,000+</b><span>Independent citations of that work by other researchers and practitioners.</span></div>
+      <div class="stat rv" style="--d:2"><b data-count="6">6</b><span>Cities and regions modelled across Nigeria and Malaysia, from single corridors to whole states.</span></div>
+    </div>
+
+    <div class="people">
+      <div class="people__head rv">
+        <p class="label">Leadership</p>
+        <h3 class="h3">The people accountable for your project.</h3>
+        <p>Every engagement is led by a registered professional who stays on the work from scoping to handover.</p>
+      </div>
+      <article class="lead rv" style="--d:1">
+        <p class="lead__role">Founder and Principal Consultant</p>
+        <h3 class="lead__name">Abdulwaheed Tella</h3>
+        <p class="lead__post">Gs., Ts. · GeoAI, flood risk and environmental modelling</p>
+        <p class="lead__bio">Leads technical delivery and method design. Specialises in explainable, transferable machine learning for hazard and environmental mapping, and in turning model outputs into tools planners and engineers can use.</p>
+        <a class="link" href="https://www.linkedin.com/in/abdulwaheedtella" target="_blank" rel="noopener">LinkedIn profile <svg class="arr" aria-hidden="true"><use href="#arr"/></svg></a>
+      </article>
+      <ul class="standing rv" style="--d:2">
+        <li><span>Professional registration</span><b>Professional Technologist, Malaysia Board of Technologists (MBOT)</b></li>
+        <li><span>Professional registration</span><b>Geospatialist, Institution of Geospatial and Remote Sensing Malaysia (IGRSM)</b></li>
+        <li><span>Research collaboration</span><b>Monash University Malaysia and Curtin University, on reliable GeoAI for flood risk</b></li>
+        <li><span>Funded research</span><b>APNIC Foundation fellowship, principal investigator</b></li>
+        <li><span>Recognition</span><b>Best Student Paper Award, IEEE Geoscience and Remote Sensing Symposium 2024</b></li>
+      </ul>
     </div>
   </div>
 </section>
@@ -769,7 +808,7 @@
     <div class="head">
       <p class="label">Research and insights</p>
       <h2 class="h2 rv" id="res-title">Where research becomes applied intelligence.</h2>
-      <p class="lede rv" style="--d:1">Our methods are published, cited and open to inspection. A selection of the work behind the practice.</p>
+      <p class="lede rv" style="--d:1">Our methods are published, cited and open to inspection. A selection of the peer-reviewed work behind what we deliver.</p>
     </div>
 
     <div class="filters" role="group" aria-label="Filter publications by topic">
@@ -878,7 +917,8 @@
         <h3>Company</h3>
         <ul>
           <li><a href="#about">About</a></li>
-          <li><a href="#work">Work</a></li>
+          <li><a href="#approach">How we work</a></li>
+          <li><a href="#work">Case studies</a></li>
           <li><a href="#research">Research</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>

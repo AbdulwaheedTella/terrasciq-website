@@ -94,7 +94,6 @@
   /* ---- generated section visuals ---------------------------------------- */
   if (window.TSQ) {
     $$('[data-contours]').forEach(TSQ.contours);
-    if ($('#aq-canvas')) TSQ.air($('#aq-canvas'));
 
     // Data → Intelligence → Decision: the same grid, progressively resolved
     (function () {
@@ -144,69 +143,60 @@
   });
 
   /* ---- work: Kuala Lumpur, 2000 to 2020 -------------------------------- */
-  // The whole city stays visible. The slider cross-fades the 2000 map into
-  // the 2020 map, so moving right always means moving forward in time.
-  var stage = $('#kl-stage');
-  if (stage) {
-    var time = $('#kl-time'), range = $('input', time), imgA = $('#kl-a'), imgB = $('#kl-b');
-    var key = $('#kl-key'), yearEl = $('#kl-year'), ticks = $$('[data-kl-year]'), raf = null;
-
-    var setT = function (v) {
-      range.value = v;
-      stage.style.setProperty('--t', (v / 100).toFixed(3));
-      range.style.setProperty('--fill', v + '%');
-      yearEl.textContent = v < 3 ? '2000' : v > 97 ? '2020' : '2000 → 2020';
-      ticks.forEach(function (t) { t.classList.toggle('is-on', (+t.dataset.klYear === 0 && v < 3) || (+t.dataset.klYear === 100 && v > 97)); });
-    };
-    var stopPlay = function () { if (raf) cancelAnimationFrame(raf); raf = null; };
-    var play = function () {
-      stopPlay();
-      if (reduced) { setT(+range.value > 50 ? 0 : 100); return; }
-      var t0 = performance.now(), dur = 2600;
-      (function step(now) {
-        var p = Math.min(1, (now - t0) / dur);
-        setT(Math.round((p < 0.5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2) * 100));
-        raf = p < 1 ? requestAnimationFrame(step) : null;
-      })(t0);
-    };
-    range.addEventListener('input', function () { stopPlay(); setT(+range.value); });
-    $('#kl-play').addEventListener('click', play);
-    ticks.forEach(function (t) { t.addEventListener('click', function () { stopPlay(); setT(+t.dataset.klYear); }); });
+  // The 2000 map is the base. Dragging the handle to the right draws the 2020
+  // map over it from the left, so right always means forward in time.
+  var wipe = $('#kl-wipe');
+  if (wipe) {
+    var range = $('input', wipe), imgA = $('#kl-a'), imgB = $('#kl-b'), key = $('#kl-key'), hint = $('#kl-hint'), raf = null;
+    var setP = function (v) { range.value = v; wipe.style.setProperty('--p', v + '%'); };
+    var stopAnim = function () { if (raf) cancelAnimationFrame(raf); raf = null; };
+    range.addEventListener('input', function () { stopAnim(); setP(+range.value); });
+    wipe.addEventListener('pointerdown', stopAnim);
 
     var scale = function (css, lo, hi) { return '<div class="bar" style="background:' + css + '"></div><div class="ends"><span>' + lo + '</span><span>' + hi + '</span></div>'; };
     var rows = function (items) { return '<ul>' + items.map(function (r) { return '<li><i style="background:' + r[0] + '"></i><span>' + r[1] + '</span><b>' + r[2] + '</b></li>'; }).join('') + '</ul>'; };
     var KL = {
-      landcover: { label: 'Land cover', key: '<p>Five classes mapped at 30 m; colours match the table below. Move the slider to watch green patches give way to built-up land.</p>' },
-      change: { label: 'Land-cover change, 2000 to 2020,', single: true, key: rows([['#e23b2e', 'Vegetation to built-up', '12.7 km²'], ['#f29a3f', 'Cropland to built-up', '9.6 km²'], ['#4fcbee', 'Built-up to green cover', '15.6 km²'], ['#b9ad62', 'Vegetation and cropland swapped', '10.8 km²'], ['#2a3531', 'No change', '191.1 km²']]) },
-      index: { label: 'Built-up versus vegetation index', key: scale('linear-gradient(90deg,#12512f,#4f9a4c,#e9e4c9,#e9954a,#b8321f)', 'Vegetated', 'Built surface') + '<p>NDBI minus NDVI: one index that separates built surfaces from vegetation without a classification step.</p>' },
-      elevation: { label: 'Elevation', single: true, key: scale('linear-gradient(90deg,#1b4d42,#4f7648,#a7925e,#d9c9a3,#f3ecd9)', '14 m', '318 m') + '<p>Terrain model with hillshade. It also provides the relief shading under the other layers.</p>' }
+      landcover: { label: 'Land cover', table: 'landcover', key: '<p>Five classes mapped at 30 m. Drag right to bring in 2020 and watch green patches give way to built-up land.</p>' },
+      flood: { label: 'Flood susceptibility', table: 'flood', key: scale('linear-gradient(90deg,#10363f,#1c6f8f,#45b6d6,#f0d95a,#f08a3c,#c92a1e)', 'Very low', 'Very high') + '<p>Modelled probability of flooding for each year. 33.7 km² moved into a higher class by 2020; 18.6 km² moved lower.</p>' },
+      index: { label: 'Built-up versus vegetation index', table: 'landcover', key: scale('linear-gradient(90deg,#12512f,#4f9a4c,#e9e4c9,#e9954a,#b8321f)', 'Vegetated', 'Built surface') + '<p>NDBI minus NDVI: one index that separates built surfaces from vegetation without a classification step.</p>' },
+      change: { label: 'Land-cover change, 2000 to 2020,', table: 'landcover', single: true, key: rows([['#e23b2e', 'Vegetation to built-up', '12.7 km²'], ['#f29a3f', 'Cropland to built-up', '9.6 km²'], ['#4fcbee', 'Built-up to green cover', '15.6 km²'], ['#b9ad62', 'Vegetation and cropland swapped', '10.8 km²'], ['#39453f', 'No change', '191.1 km²']]) }
     };
     var klBtns = $$('[data-kl]');
     var pick = function (name) {
       var L = KL[name], base = 'assets/img/kl-' + name;
-      stopPlay();
+      stopAnim();
       klBtns.forEach(function (o) { o.setAttribute('aria-pressed', String(o.dataset.kl === name)); });
       key.innerHTML = L.key;
-      stage.classList.add('is-swapping');
+      ['landcover', 'flood'].forEach(function (t) { $('#kl-table-' + t).hidden = t !== L.table; });
+      wipe.classList.add('is-swapping');
       setTimeout(function () {
         imgA.src = base + (L.single ? '' : '-2000') + '.webp';
         imgA.alt = L.label + ' of Kuala Lumpur' + (L.single ? '.' : ' in 2000.');
         if (!L.single) { imgB.src = base + '-2020.webp'; imgB.alt = L.label + ' of Kuala Lumpur in 2020.'; }
-        stage.classList.toggle('is-single', !!L.single);
-        time.classList.toggle('is-off', !!L.single);
-        yearEl.hidden = !!L.single;
-        var done = function () { stage.classList.remove('is-swapping'); };
+        wipe.classList.toggle('is-single', !!L.single);
+        hint.classList.toggle('is-off', !!L.single);
+        hint.children[1].textContent = L.single ? 'Change between 2000 and 2020' : 'Drag to compare';
+        var done = function () { wipe.classList.remove('is-swapping'); };
         var waits = [imgA].concat(L.single ? [] : [imgB]).map(function (im) { return im.decode ? im.decode().catch(function () {}) : null; });
         Promise.all(waits).then(done, done);
-      }, reduced ? 0 : 200);
+      }, reduced ? 0 : 180);
     };
     klBtns.forEach(function (b) { b.addEventListener('click', function () { pick(b.dataset.kl); }); });
-    key.innerHTML = KL.landcover.key; setT(0);
+    key.innerHTML = KL.landcover.key; setP(50);
 
-    // play once when the map first scrolls into view
+    // one introductory sweep when the map first scrolls into view
     if ('IntersectionObserver' in window && !reduced) {
-      var once = new IntersectionObserver(function (e) { if (e[0].isIntersecting) { once.disconnect(); setTimeout(play, 500); } }, { threshold: 0.4 });
-      once.observe(stage);
+      var once = new IntersectionObserver(function (e) {
+        if (!e[0].isIntersecting) return;
+        once.disconnect();
+        var t0 = performance.now(), dur = 2400;
+        (function step(now) {
+          var p = Math.min(1, (now - t0) / dur), k = p < 0.5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2;
+          setP(Math.round(8 + k * 52));
+          raf = p < 1 ? requestAnimationFrame(step) : null;
+        })(t0);
+      }, { threshold: 0.4 });
+      once.observe(wipe);
     }
   }
 
